@@ -15,8 +15,9 @@ const SERIES = {
   fe:         { name:"Formula E",                      short:"FE",        color:"var(--fe)" },
   supergt:    { name:"Super GT",                        short:"S.GT",      color:"var(--supergt)" },
   asianlemans:{ name:"Asian Le Mans Series",            short:"Asian LMS", color:"var(--asianlemans)" },
+  supertaikyu:{ name:"Super Taikyu Series",             short:"S.Taikyu",  color:"var(--supertaikyu)" },
 };
-const FILTER_ORDER = ["f1","f2","f1academy","wec","imsa","motogp","nascar","wrc","superformula","supergt","asianlemans","fe","indycar","indynxt","f3"];
+const FILTER_ORDER = ["f1","f2","f1academy","wec","imsa","motogp","nascar","wrc","superformula","supergt","asianlemans","supertaikyu","fe","indycar","indynxt","f3"];
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
@@ -515,6 +516,24 @@ const EVENTS = [
     ],
     watch:[{name:"Asian Le Mans Series (YouTube)", url:"https://www.youtube.com/c/AsianLeMansSeries", note:"Title decided here."}]
   },
+
+  // ---------------- SUPER TAIKYU ----------------
+  { series:"supertaikyu", name:"Okayama Round", location:"Okayama International Circuit, Japan", dateRange:"Oct 24–25",
+    sessions:[
+      {type:"Practice",   start:"2026-10-24T12:00:00Z", tba:true},
+      {type:"Qualifying", start:"2026-10-24T12:00:00Z", tba:true},
+      {type:"Race",       start:"2026-10-25T12:00:00Z", tba:true},
+    ],
+    watch:[{name:"Super Taikyu TV (YouTube)", url:"https://www.youtube.com/@supertaikyutvstaitv5599/streams", note:"Free live stream, Japanese commentary."}]
+  },
+  { series:"supertaikyu", name:"Fuji Round", location:"Fuji International Speedway, Japan", dateRange:"Nov 14–15 · Season finale",
+    sessions:[
+      {type:"Practice",   start:"2026-11-14T12:00:00Z", tba:true},
+      {type:"Qualifying", start:"2026-11-14T12:00:00Z", tba:true},
+      {type:"Race",       start:"2026-11-15T12:00:00Z", tba:true},
+    ],
+    watch:[{name:"Super Taikyu TV (YouTube)", url:"https://www.youtube.com/@supertaikyutvstaitv5599/streams", note:"Free live stream — title decided here."}]
+  },
 ];
 
 // ============ STANDINGS ============
@@ -604,7 +623,12 @@ const STANDINGS = [
         {pos:1, name:"de Oliveira / Kimura", team:"Kondo Racing", pts:"GT300 leaders"},
       ], note:"Two separate classes (GT500 and GT300) run together — each has its own champion. Season cut to seven rounds after the Sepang round was postponed indefinitely.", link:"https://www.motorsport.com/supergt/standings/2026/" },
     { key:"asianlemans", status:"2026–27 season not yet underway · opens Nov 13", entries:[], note:"This edition is branded and organized as the Asian Le Mans Series but the entire six-round calendar was relocated to Europe (Paul Ricard, Jerez, Portimão) for geopolitical reasons.", link:"https://www.asianlemansseries.com/" },
-    { key:"tcrchina", status:"In progress", entries:[], note:"Full 2026 points standings weren't available at time of writing. Recent round winners: William Cheung Wang (Shanghai, Rd 1), Liang Qi (Ningbo, Rd 2).", link:"https://en.wikipedia.org/wiki/2026_TCR_China_Touring_Car_Championship" },
+    { key:"supertaikyu", status:"In progress · 2 rounds left", entries:[
+        {pos:1, name:"Hitonowa The Team Standard", team:"—", pts:"ST-TCR class leader"},
+      ], note:"A multi-class endurance series (ST-Q down through ST-1–ST-5, plus ST-TCR) — this shows the ST-TCR class only. Full cross-class standings weren't available at time of writing.", link:"https://en.wikipedia.org/wiki/2026_Super_Taikyu_Series" },
+    { key:"superformulalights", status:"Season complete", entries:[
+        {pos:1, name:"Evan Giltaire", team:"—", pts:"Champion"},
+      ], note:"Clinched with a race to spare — first non-Japanese champion in the series' current guise. TOM'S retained the Teams' title.", link:"https://en.wikipedia.org/wiki/2026_Super_Formula_Lights" },
   ]},
 ];
 const STANDINGS_META = {
@@ -627,7 +651,8 @@ const STANDINGS_META = {
   fe:{name:"Formula E", color:"var(--fe)"},
   supergt:{name:"Super GT", color:"var(--supergt)"},
   asianlemans:{name:"Asian Le Mans Series", color:"var(--asianlemans)"},
-  tcrchina:{name:"TCR China Touring Car Championship", color:"var(--tcrchina)"},
+  supertaikyu:{name:"Super Taikyu Series", color:"var(--supertaikyu)"},
+  superformulalights:{name:"Super Formula Lights", color:"var(--superformulalights)"},
 };
 
 // ============ CHAMPIONSHIP MATH ============
@@ -645,7 +670,7 @@ const POINTS_NOTE = {
 };
 const MATH_SERIES = [
   { key:"f1", remaining:8, raceLabels:["AZE","SIN","USA","MEX","BRA","LAS","QAT","ABU"],
-    entries: STANDINGS.find(g=>g.group==="World Championships").items.find(i=>i.key==="f1").entries.concat([
+    entries: STANDINGS.flatMap(g=>g.items).find(i=>i.key==="f1").entries.concat([
       {pos:6,name:"Max Verstappen",team:"Red Bull",pts:"145 pts",raw:145},
       {pos:7,name:"Oscar Piastri",team:"McLaren",pts:"120 pts",raw:120},
       {pos:8,name:"Isack Hadjar",team:"Red Bull",pts:"71 pts",raw:71},

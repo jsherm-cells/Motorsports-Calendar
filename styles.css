@@ -8,7 +8,7 @@
     --imsa:#a9821f; --motogp:#d81463; --nascar:#2f6fed; --wrc:#8a5a2e; --f1academy:#c4399e;
     --italianf4:#2f9e5c; --freca:#a34fd6; --f4us:#2f8fc4; --fregam:#c48a2c;
     --superformula:#d1495b; --fe:#1fae87;
-    --supergt:#1f9e8f; --asianlemans:#d97a3f; --tcrchina:#c23b5e;
+    --supergt:#1f9e8f; --asianlemans:#d97a3f; --supertaikyu:#b8562e; --superformulalights:#e0798f;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -21,7 +21,7 @@
       --imsa:#e0b640; --motogp:#ff4f93; --nascar:#6a9bff; --wrc:#c98f52; --f1academy:#e06bc4;
       --italianf4:#4fc17e; --freca:#c583f0; --f4us:#5eb8e8; --fregam:#e0ad5c;
       --superformula:#ff7b8a; --fe:#4fe6bd;
-      --supergt:#4fe6d1; --asianlemans:#ffab6b; --tcrchina:#ff6b91;
+      --supergt:#4fe6d1; --asianlemans:#ffab6b; --supertaikyu:#e0855a; --superformulalights:#f5a3b3;
     }
   }
   :root[data-theme="dark"]{
@@ -34,7 +34,7 @@
     --imsa:#e0b640; --motogp:#ff4f93; --nascar:#6a9bff; --wrc:#c98f52; --f1academy:#e06bc4;
     --italianf4:#4fc17e; --freca:#c583f0; --f4us:#5eb8e8; --fregam:#e0ad5c;
     --superformula:#ff7b8a; --fe:#4fe6bd;
-    --supergt:#4fe6d1; --asianlemans:#ffab6b; --tcrchina:#ff6b91;
+    --supergt:#4fe6d1; --asianlemans:#ffab6b; --supertaikyu:#e0855a; --superformulalights:#f5a3b3;
   }
 
   *{box-sizing:border-box;}
