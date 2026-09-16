@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paddock Pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">2026 Season · Remaining Schedule</p>
+      <h1 class="title">Paddock Pass</h1>
+      <p class="sub">Every remaining session across fifteen championships, current standings across the USA, Europe and Asia, and the title-fight math — where to watch, built in.</p>
+    </div>
+    <div class="tz-control">
+      <label for="tz">Show times in</label>
+      <select id="tz"></select>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn" id="tabCalendarBtn" data-active="true">Calendar</button>
+    <button class="tab-btn" id="tabStandingsBtn" data-active="false">Standings</button>
+    <button class="tab-btn" id="tabPerfBtn" data-active="false">Performance</button>
+  </nav>
+
+  <section class="tab-panel" id="calendarPanel">
+    <section class="hero" id="hero"></section>
+    <div class="filters" id="filters"></div>
+    <div class="note-strip">
+      <div class="note-row"><span class="dot" style="background:var(--indycar)"></span><div><b>IndyCar</b> — champion decided Sept 6 at Laguna Seca. Next season opens ~March 2027 (dates TBA).</div></div>
+      <div class="note-row"><span class="dot" style="background:var(--indynxt)"></span><div><b>Indy NXT</b> — champion decided the same weekend at Laguna Seca. Next season also opens ~March 2027.</div></div>
+      <div class="note-row"><span class="dot" style="background:var(--f3)"></span><div><b>Formula 3</b> — champion decided Sept 13 at Madrid. Next season opens ~March 2027.</div></div>
+      <div style="padding-top:2px;">Final 2026 standings for all three are in the <b>Standings</b> tab.</div>
+    </div>
+
+    <div class="cal-nav">
+      <button id="calPrev">← Prev</button>
+      <div class="cal-month-label" id="calMonthLabel"></div>
+      <button id="calNext">Next →</button>
+    </div>
+    <div class="cal-weekdays">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <p class="cal-empty-note" id="calEmptyNote" hidden></p>
+  </section>
+
+  <section class="tab-panel" id="standingsPanel" hidden></section>
+
+  <section class="tab-panel" id="perfPanel" hidden></section>
+
+  <footer>
+    <p><b>Streaming links go to each service's official site or app</b> — sign-in/subscription happens there, not here.</p>
+    <p><b>Times marked ⟡</b> follow each series' typical weekend pattern rather than a confirmed timetable. <b>"Time TBA"</b> means an exact time wasn't published yet as of writing — check the official series site closer to the event.</p>
+    <p><b>Championship Math</b> uses each series' real points-per-finish table (NASCAR's is simplified to finishing position only — it ignores stage points and race-win playoff bonuses, so treat it as directional, not official). Every driver is checked against every other driver directly — their own ceiling (winning every remaining race) against each rival's floor (current points, since points only go up) — rather than assuming the standings leader is automatically the only threat; whoever clears every rival that way is Leader, everyone else is Alive or Eliminated by the same test. The headline number in each writeup is a <b>points-per-race margin</b> (current gap ÷ races remaining) — how much a trailing driver has to outscore a rival by, on average, to close it — which makes no assumption about the rival's own pace; it's true whether the rival goes cold or keeps winning, since only the gap between them matters. Underneath, a table compares that same margin across everyone still mathematically alive (all measured against the same leader), so it's easy to see who has the easier path — and a line calls out the closest driver behind, with the smaller margin it'd take for them to catch this driver specifically rather than the leader. Scenarios you build in the calculator are exact per-race sums for both drivers, not averages or assumptions.</p>
+    <p><b>Rising Stars</b> is a simple composite of category level × standing, not a scouting report.</p>
+    <p>Schedule and standings compiled September 2026 from official series and broadcaster sources. Standings move fast — treat the numbers here as a snapshot, not a live feed, and confirm anything you're relying on at the series' own site.</p>
+  </footer>
+</div>
+
+<dialog id="eventModal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
