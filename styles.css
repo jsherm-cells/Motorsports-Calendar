@@ -133,6 +133,9 @@
   .standings-card{background:var(--surface); border:1px solid var(--border); border-top:4px solid var(--card-color); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); display:flex; flex-direction:column;}
   .standings-card h3{font-size:15.5px; margin-bottom:2px;}
   .standings-status{font-size:11px; color:var(--text-muted); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em; font-family:'Oswald';}
+  .live-badge{font-family:'Oswald'; font-size:9px; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:20px; margin-left:8px; font-weight:600; white-space:nowrap;}
+  .live-badge-live{background:var(--live-soft); color:var(--live);}
+  .live-badge-fallback, .live-badge-pending{background:var(--surface-2); color:var(--text-muted); border:1px solid var(--border);}
   .standings-list{list-style:none; margin:0 0 8px; padding:0; display:flex; flex-direction:column; gap:7px;}
   .standings-list li{display:flex; gap:8px; align-items:baseline;}
   .standings-pos{font-family:'JetBrains Mono'; color:var(--text-muted); font-size:12px; width:14px; flex:none;}

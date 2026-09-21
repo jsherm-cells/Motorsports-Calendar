@@ -33,6 +33,16 @@ const EVENTS = [
     ],
     watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Exclusive U.S. home of F1 in 2026 — every session streams live, $12.99/mo or $99/yr."}]
   },
+  { series:"f1", name:"Bahrain Grand Prix", location:"Sepang International Circuit, Malaysia — relocated from Bahrain for 2026", dateRange:"Oct 2–4",
+    sessions:[
+      {type:"Practice 1", start:"2026-10-02T08:00:00Z", tba:true},
+      {type:"Practice 2", start:"2026-10-02T11:00:00Z", tba:true},
+      {type:"Practice 3", start:"2026-10-03T08:00:00Z", tba:true},
+      {type:"Qualifying", start:"2026-10-03T11:00:00Z", tba:true},
+      {type:"Race",       start:"2026-10-04T09:00:00Z", tba:true, dur:120},
+    ],
+    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"All sessions live. This round was caught missing from the original hand-built calendar — confirmed via live schedule data on Sept 20, 2026."}]
+  },
   { series:"f1", name:"Singapore Grand Prix", location:"Marina Bay Street Circuit, Singapore", dateRange:"Oct 9–11 · Sprint weekend",
     sessions:[
       {type:"Practice 1",        start:"2026-10-09T08:30:00Z", dur:60},
@@ -581,7 +591,7 @@ const STANDINGS = [
     { key:"fregam", status:"In progress · concludes October", entries:[], note:"Current 2026 standings weren't available at time of writing. 2025 champion was Titus Sherlock (Crosslink Motorsports).", link:"https://en.wikipedia.org/wiki/2026_Formula_Regional_Americas_Championship" },
   ]},
   { group:"Europe", items:[
-    { key:"f1", status:"In progress · 8 rounds left", entries:[
+    { key:"f1", status:"In progress · 9 rounds left", entries:[
         {pos:1, name:"Kimi Antonelli", team:"Mercedes", pts:"292 pts"},
         {pos:2, name:"George Russell", team:"Mercedes", pts:"211 pts"},
         {pos:3, name:"Lewis Hamilton", team:"Ferrari", pts:"191 pts"},
@@ -693,7 +703,7 @@ const POINTS_NOTE = {
   superformula: "Real 2026 scale (30–25–20…). Treats each remaining round as one race — any separate sprint-race points aren't modeled.",
 };
 const MATH_SERIES = [
-  { key:"f1", remaining:8, raceLabels:["AZE","SIN","USA","MEX","BRA","LAS","QAT","ABU"],
+  { key:"f1", remaining:9, raceLabels:["AZE","BAH","SIN","USA","MEX","BRA","LAS","QAT","ABU"],
     entries: STANDINGS.flatMap(g=>g.items).find(i=>i.key==="f1").entries.concat([
       {pos:6,name:"Max Verstappen",team:"Red Bull",pts:"145 pts",raw:145},
       {pos:7,name:"Oscar Piastri",team:"McLaren",pts:"120 pts",raw:120},

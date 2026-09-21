@@ -331,10 +331,12 @@ function renderStandings(){
       <div class="standings-grid">
         ${group.items.map(item=>{
           const meta = STANDINGS_META[item.key];
+          const live = LIVE[item.key];
+          const liveBadge = live ? `<span class="live-badge live-badge-${live.status}">${live.status==='live' ? '● Live' : live.status==='pending' ? 'Checking…' : 'Snapshot'}</span>` : '';
           return `
           <div class="standings-card" style="--card-color:${meta.color}">
             <h3>${meta.name}</h3>
-            <div class="standings-status">${item.status}</div>
+            <div class="standings-status">${item.status}${liveBadge}</div>
             <ul class="standings-list">
               ${item.entries.length ? item.entries.map(e=>`
                 <li>
@@ -482,7 +484,7 @@ function renderMathSeries(cfg){
 
   return `
   <div class="perf-series">
-    <div class="perf-head"><span class="dot" style="background:${meta.color}"></span><h2>${meta.name}</h2></div>
+    <div class="perf-head"><span class="dot" style="background:${meta.color}"></span><h2>${meta.name}</h2>${LIVE[cfg.key] ? `<span class="live-badge live-badge-${LIVE[cfg.key].status}">${LIVE[cfg.key].status==='live' ? '● Live' : LIVE[cfg.key].status==='pending' ? 'Checking…' : 'Snapshot'}</span>` : ''}</div>
     <div class="perf-sub">${cfg.remaining} races remaining this season · max ${maxRemaining} pts still available</div>
     <table class="perf-table">
       <thead><tr><th>Pos</th><th>Driver</th><th style="text-align:right">Points</th><th style="text-align:right">Gap</th><th style="text-align:right">Max poss.</th><th>Status</th></tr></thead>
@@ -622,6 +624,65 @@ function renderPerf(){
   wireMathCalculators();
 }
 
+// ============ live F1 data ============
+// F1 is the one series here with a solid free public API (Jolpica, the open-source successor to
+// Ergast) — every other series in this app has no equivalent structured feed, so it stays a
+// hand-maintained snapshot updated by hand from research. This fetch is deliberately best-effort:
+// some hosting contexts (e.g. the Claude Artifact platform's CSP) block outbound fetches entirely,
+// so on any failure this just leaves the snapshot baked into data.js in place — the page never
+// ends up worse off than before this existed, and it "just works" live wherever fetch isn't blocked.
+const LIVE = { f1: { status: 'pending', asOf: null } }; // 'pending' | 'live' | 'fallback'
+
+async function refreshLiveF1(){
+  try{
+    const [standingsRes, scheduleRes] = await Promise.all([
+      fetch('https://api.jolpi.ca/ergast/f1/current/driverStandings.json'),
+      fetch('https://api.jolpi.ca/ergast/f1/current.json'),
+    ]);
+    if(!standingsRes.ok || !scheduleRes.ok) throw new Error('bad response');
+    const standingsJson = await standingsRes.json();
+    const scheduleJson = await scheduleRes.json();
+
+    const list = standingsJson.MRData.StandingsTable.StandingsLists[0];
+    const completedRounds = parseInt(list.round, 10);
+    const races = scheduleJson.MRData.RaceTable.Races;
+    const remaining = Math.max(races.length - completedRounds, 0);
+    const upcoming = races.slice(completedRounds, completedRounds + remaining);
+    const raceLabels = upcoming.map(r => (r.raceName.replace(/ Grand Prix.*/i, '').trim().slice(0, 3) || 'TBD').toUpperCase());
+
+    const entries = list.DriverStandings.map(d => ({
+      pos: parseInt(d.position, 10),
+      name: `${d.Driver.givenName} ${d.Driver.familyName}`,
+      team: d.Constructors[0]?.name || '—',
+      raw: parseInt(d.points, 10),
+    })).sort((a, b) => a.pos - b.pos);
+
+    const top10 = entries.slice(0, 10);
+    const top5 = entries.slice(0, 5).map(e => ({ ...e, pts: `${e.raw.toLocaleString()} pts` }));
+    const restNote = entries.slice(5, 10).map(e => `${e.name.split(' ').slice(-1)[0]} (${e.raw})`).join(', ');
+
+    if(!remaining){
+      throw new Error('season complete or schedule unavailable — keep the hand-maintained snapshot');
+    }
+
+    const mathEntry = MATH_SERIES.find(m => m.key === 'f1');
+    mathEntry.entries = top10;
+    mathEntry.remaining = remaining;
+    mathEntry.raceLabels = raceLabels.length === remaining ? raceLabels : Array.from({ length: remaining }, (_, i) => `R${i + 1}`);
+
+    const standingsItem = STANDINGS.flatMap(g => g.items).find(i => i.key === 'f1');
+    standingsItem.entries = top5;
+    standingsItem.status = `In progress · ${remaining} round${remaining === 1 ? '' : 's'} left`;
+    if(restNote) standingsItem.note = `${restNote} round out the top 10.`;
+
+    LIVE.f1 = { status: 'live', asOf: new Date() };
+  }catch(e){
+    LIVE.f1 = { status: 'fallback', asOf: null };
+  }
+  renderStandings();
+  renderPerf();
+}
+
 function renderAll(){
   renderFilters();
   renderHero();
@@ -630,6 +691,7 @@ function renderAll(){
 renderAll();
 renderStandings();
 renderPerf();
+refreshLiveF1();
 
 let savedTab = 'calendar';
 try{ savedTab = localStorage.getItem('paddock-tab') || 'calendar'; }catch(e){}
