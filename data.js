@@ -16,8 +16,10 @@ const SERIES = {
   supergt:    { name:"Super GT",                        short:"S.GT",      color:"var(--supergt)" },
   asianlemans:{ name:"Asian Le Mans Series",            short:"Asian LMS", color:"var(--asianlemans)" },
   supertaikyu:{ name:"Super Taikyu Series",             short:"S.Taikyu",  color:"var(--supertaikyu)" },
+  elms:       { name:"European Le Mans Series",         short:"ELMS",      color:"var(--elms)" },
+  porschesupercup: { name:"Porsche Supercup",           short:"P.Supercup", color:"var(--porschesupercup)" },
 };
-const FILTER_ORDER = ["f1","f2","f1academy","wec","imsa","motogp","nascar","wrc","superformula","supergt","asianlemans","supertaikyu","fe","indycar","indynxt","f3"];
+const FILTER_ORDER = ["f1","f2","f1academy","wec","elms","imsa","motogp","nascar","wrc","superformula","supergt","asianlemans","supertaikyu","fe","indycar","indynxt","f3","porschesupercup"];
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
@@ -534,6 +536,19 @@ const EVENTS = [
     ],
     watch:[{name:"Super Taikyu TV (YouTube)", url:"https://www.youtube.com/@supertaikyutvstaitv5599/streams", note:"Free live stream — title decided here."}]
   },
+
+  // ---------------- EUROPEAN LE MANS SERIES ----------------
+  { series:"elms", name:"4 Hours of the Algarve", location:"Algarve International Circuit, Portimão, Portugal", dateRange:"Oct 8–10 · Season finale",
+    sessions:[
+      {type:"Practice",    start:"2026-10-08T12:00:00Z", tba:true},
+      {type:"Qualifying",  start:"2026-10-09T12:00:00Z", tba:true},
+      {type:"Race (4h)",   start:"2026-10-10T12:00:00Z", tba:true, dur:240},
+    ],
+    watch:[
+      {name:"FIAWEC+", url:"https://plus.fiawec.com/en/european-le-mans-series", note:"Free official stream — title decided across LMP2, LMP3 and LMGT3."},
+      {name:"YouTube", url:"https://www.youtube.com/@EuropeanLeMansSeriesOfficial", note:"Free, worldwide."},
+    ]
+  },
 ];
 
 // ============ STANDINGS ============
@@ -612,6 +627,13 @@ const STANDINGS = [
         {pos:1, name:"Emanuele Olivieri", team:"R-ace GP", pts:"Champion, +9"},
         {pos:2, name:"Sebastian Wheldon", team:"MP Motorsport"},
       ], link:"https://api.fia.com/events/fia-formula-regional-european-championship/season-2026/fia-formula-regional-european" },
+    { key:"elms", status:"After Round 4 (pre-Silverstone) · 1 round left", entries:[
+        {pos:1, name:"Forestier Racing by Panis", team:"—", pts:"70 pts"},
+        {pos:1, name:"United Autosports", team:"—", pts:"70 pts"},
+      ], note:"Tied on points after 4 rounds across LMP2, LMP3 and LMGT3 — Forestier leads on countback (2 wins to 1). Silverstone (Sept 11–13) results weren't available at time of writing; only the Algarve finale remains.", link:"https://www.motorsport.com/elms/standings/2026/" },
+    { key:"porschesupercup", status:"Season complete · Monza, Sept 4–6", entries:[
+        {pos:1, name:"Flynt Schuring", team:"Porsche Junior", pts:"Champion, 3 wins"},
+      ], link:"https://racing.porsche.com/mobil-1-supercup/results-season-2026" },
   ]},
   { group:"Asia", items:[
     { key:"superformula", status:"In progress · 2 rounds left", entries:[
@@ -653,6 +675,8 @@ const STANDINGS_META = {
   asianlemans:{name:"Asian Le Mans Series", color:"var(--asianlemans)"},
   supertaikyu:{name:"Super Taikyu Series", color:"var(--supertaikyu)"},
   superformulalights:{name:"Super Formula Lights", color:"var(--superformulalights)"},
+  elms:{name:"European Le Mans Series", color:"var(--elms)"},
+  porschesupercup:{name:"Porsche Supercup", color:"var(--porschesupercup)"},
 };
 
 // ============ CHAMPIONSHIP MATH ============

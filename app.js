@@ -66,10 +66,14 @@ function localDateKey(iso, tz){
 }
 
 // ============ filters ============
+// Persist which series are turned OFF, not which are on. If we stored the "on" set, every
+// series added to FILTER_ORDER after a user's last save (like this one) would be missing from
+// their saved list and default to hidden, even though they never chose to hide it. Storing the
+// "off" set means anything new is visible by default and only explicit opt-outs stick.
 let activeSeries = new Set(FILTER_ORDER);
 try{
-  const saved = JSON.parse(localStorage.getItem('paddock-filters'));
-  if(Array.isArray(saved) && saved.length) activeSeries = new Set(saved);
+  const off = JSON.parse(localStorage.getItem('paddock-filters-off'));
+  if(Array.isArray(off)) off.forEach(k=> activeSeries.delete(k));
 }catch(e){}
 
 const filtersEl = document.getElementById('filters');
@@ -83,7 +87,7 @@ function renderFilters(){
     chip.innerHTML = `<span class="dot" style="background:${s.color}"></span>${s.name}`;
     chip.addEventListener('click', ()=>{
       if(activeSeries.has(key)) activeSeries.delete(key); else activeSeries.add(key);
-      try{ localStorage.setItem('paddock-filters', JSON.stringify([...activeSeries])); }catch(e){}
+      try{ localStorage.setItem('paddock-filters-off', JSON.stringify(FILTER_ORDER.filter(k=>!activeSeries.has(k)))); }catch(e){}
       renderAll();
     });
     filtersEl.appendChild(chip);

@@ -9,6 +9,7 @@
     --italianf4:#2f9e5c; --freca:#a34fd6; --f4us:#2f8fc4; --fregam:#c48a2c;
     --superformula:#d1495b; --fe:#1fae87;
     --supergt:#1f9e8f; --asianlemans:#d97a3f; --supertaikyu:#b8562e; --superformulalights:#e0798f;
+    --elms:#2f6fa8; --porschesupercup:#8f2350;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -22,6 +23,7 @@
       --italianf4:#4fc17e; --freca:#c583f0; --f4us:#5eb8e8; --fregam:#e0ad5c;
       --superformula:#ff7b8a; --fe:#4fe6bd;
       --supergt:#4fe6d1; --asianlemans:#ffab6b; --supertaikyu:#e0855a; --superformulalights:#f5a3b3;
+      --elms:#6bb3e0; --porschesupercup:#e0578f;
     }
   }
   :root[data-theme="dark"]{
@@ -35,6 +37,7 @@
     --italianf4:#4fc17e; --freca:#c583f0; --f4us:#5eb8e8; --fregam:#e0ad5c;
     --superformula:#ff7b8a; --fe:#4fe6bd;
     --supergt:#4fe6d1; --asianlemans:#ffab6b; --supertaikyu:#e0855a; --superformulalights:#f5a3b3;
+    --elms:#6bb3e0; --porschesupercup:#e0578f;
   }
 
   *{box-sizing:border-box;}
