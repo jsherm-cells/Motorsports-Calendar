@@ -23,16 +23,6 @@ const FILTER_ORDER = ["f1","f2","f1academy","wec","elms","imsa","motogp","nascar
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
-  { series:"f1", name:"Azerbaijan Grand Prix", location:"Baku City Circuit, Azerbaijan", dateRange:"Sep 24–26",
-    sessions:[
-      {type:"Practice 1", start:"2026-09-24T08:30:00Z", dur:60},
-      {type:"Practice 2", start:"2026-09-24T12:00:00Z", dur:60},
-      {type:"Practice 3", start:"2026-09-25T08:30:00Z", dur:60},
-      {type:"Qualifying", start:"2026-09-25T12:00:00Z", dur:60},
-      {type:"Race",       start:"2026-09-26T11:00:00Z", dur:120},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Exclusive U.S. home of F1 in 2026 — every session streams live, $12.99/mo or $99/yr."}]
-  },
   { series:"f1", name:"Bahrain Grand Prix", location:"Sepang International Circuit, Malaysia — relocated from Bahrain for 2026", dateRange:"Oct 2–4",
     sessions:[
       {type:"Practice 1", start:"2026-10-02T08:00:00Z", tba:true},
@@ -101,7 +91,7 @@ const EVENTS = [
       {type:"Qualifying", start:"2026-11-28T18:00:00Z", dur:60},
       {type:"Race",       start:"2026-11-29T16:00:00Z", dur:120},
     ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"All sessions live."}]
+    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"All sessions live. Still provisional — F1 expects a final call by mid-October on whether this round and Abu Dhabi can proceed given the regional conflict; a contingency plan would end the season in Europe instead."}]
   },
   { series:"f1", name:"Abu Dhabi Grand Prix", location:"Yas Marina Circuit, Abu Dhabi", dateRange:"Dec 4–6 · Season finale",
     sessions:[
@@ -111,19 +101,10 @@ const EVENTS = [
       {type:"Qualifying", start:"2026-12-05T14:00:00Z", dur:60},
       {type:"Race",       start:"2026-12-06T13:00:00Z", dur:120},
     ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Final round — championship decided."}]
+    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Final round — championship decided. Also provisional pending F1's mid-October call on the Qatar/Abu Dhabi rounds."}]
   },
 
   // ---------------- FORMULA 2 ----------------
-  { series:"f2", name:"Baku Round", location:"Baku City Circuit, Azerbaijan", dateRange:"Sep 25–27",
-    sessions:[
-      {type:"Practice",      start:"2026-09-25T12:00:00Z", tba:true},
-      {type:"Qualifying",    start:"2026-09-25T12:00:00Z", tba:true},
-      {type:"Sprint Race",   start:"2026-09-26T12:00:00Z", tba:true},
-      {type:"Feature Race",  start:"2026-09-27T12:00:00Z", tba:true},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"F2 runs on the F1 TV app inside your Apple TV subscription — no separate sign-up."}]
-  },
   { series:"f2", name:"Qatar Round", location:"Lusail International Circuit, Qatar", dateRange:"Nov 27–29",
     sessions:[
       {type:"Practice",      start:"2026-11-27T12:00:00Z", tba:true},
@@ -131,7 +112,7 @@ const EVENTS = [
       {type:"Sprint Race",   start:"2026-11-28T12:00:00Z", tba:true},
       {type:"Feature Race",  start:"2026-11-29T12:00:00Z", tba:true},
     ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Included with your Apple TV / F1 TV subscription."}]
+    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Included with your Apple TV / F1 TV subscription. This round shares F1's mid-October uncertainty over whether the Qatar/Abu Dhabi doubleheader can proceed."}]
   },
   { series:"f2", name:"Abu Dhabi Round", location:"Yas Marina Circuit, Abu Dhabi", dateRange:"Dec 4–6 · Season finale",
     sessions:[
@@ -140,7 +121,7 @@ const EVENTS = [
       {type:"Sprint Race",   start:"2026-12-05T12:00:00Z", tba:true},
       {type:"Feature Race",  start:"2026-12-06T12:00:00Z", tba:true},
     ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Title-deciding round — included with Apple TV / F1 TV."}]
+    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Title-deciding round — included with Apple TV / F1 TV. Also provisional pending F1's Middle East scheduling decision."}]
   },
 
   // ---------------- F1 ACADEMY ----------------
@@ -164,19 +145,6 @@ const EVENTS = [
   },
 
   // ---------------- WEC ----------------
-  { series:"wec", name:"6 Hours of Fuji", location:"Fuji Speedway, Japan", dateRange:"Sep 25–27",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-09-25T12:00:00Z", tba:true},
-      {type:"Free Practice 2", start:"2026-09-26T12:00:00Z", tba:true},
-      {type:"Hyperpole",       start:"2026-09-26T12:00:00Z", tba:true},
-      {type:"Race (6h)",       start:"2026-09-27T12:00:00Z", tba:true, dur:360},
-    ],
-    watch:[
-      {name:"FIAWEC+", url:"https://www.fiawec.com/", note:"Official global stream — every session, every class."},
-      {name:"MotorTrend", url:"https://www.motortrend.com/", note:"U.S. linear TV partner."},
-      {name:"HBO Max", url:"https://www.max.com/", note:"U.S. streaming."},
-    ]
-  },
   { series:"wec", name:"6 Hours of Barcelona", location:"Circuit de Barcelona-Catalunya, Spain", dateRange:"Oct 16–18",
     sessions:[
       {type:"Free Practice 1", start:"2026-10-16T12:00:00Z", tba:true},
@@ -205,17 +173,6 @@ const EVENTS = [
   },
 
   // ---------------- IMSA ----------------
-  { series:"imsa", name:"Battle on the Bricks", location:"Indianapolis Motor Speedway road course, IN", dateRange:"Sep 18–20",
-    sessions:[
-      {type:"Practice",   start:"2026-09-18T16:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-09-19T16:00:00Z", tba:true},
-      {type:"Race",       start:"2026-09-20T17:00:00Z", tba:true, dur:160},
-    ],
-    watch:[
-      {name:"NBC", url:"https://www.nbc.com/nbc-sports", note:"Start and finish air live on broadcast NBC."},
-      {name:"Peacock", url:"https://www.peacocktv.com/", note:"Full race, flag to flag."},
-    ]
-  },
   { series:"imsa", name:"Motul Petit Le Mans", location:"Michelin Raceway Road Atlanta, Braselton, GA", dateRange:"Oct 1–3 · Season finale",
     sessions:[
       {type:"Practice",   start:"2026-10-01T17:00:00Z", tba:true},
@@ -229,21 +186,6 @@ const EVENTS = [
   },
 
   // ---------------- MOTOGP ----------------
-  { series:"motogp", name:"Austrian Grand Prix", location:"Red Bull Ring, Spielberg", dateRange:"Sep 18–20",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-09-18T08:45:00Z", dur:45, approx:true},
-      {type:"Practice",        start:"2026-09-18T13:00:00Z", dur:45, approx:true},
-      {type:"Free Practice 2", start:"2026-09-19T08:10:00Z", dur:30, approx:true},
-      {type:"Qualifying",      start:"2026-09-19T08:50:00Z", dur:35, approx:true},
-      {type:"Sprint",          start:"2026-09-19T13:00:00Z", dur:30, approx:true},
-      {type:"Race",            start:"2026-09-20T12:00:00Z", dur:45, approx:true},
-    ],
-    watch:[
-      {name:"Fox One", url:"https://www.foxsports.com/foxone", note:"$19.99/mo, every session live."},
-      {name:"FS1 / FS2", url:"https://www.foxsports.com/live", note:"Cable/satellite."},
-      {name:"The MotoGP Channel", url:"https://www.motogp.com/en/videos/motogp-channel", note:"Free, ad-supported."},
-    ]
-  },
   { series:"motogp", name:"Japanese Grand Prix", location:"Twin Ring Motegi, Japan", dateRange:"Oct 2–4",
     sessions:[
       {type:"Free Practice 1", start:"2026-10-02T01:45:00Z", dur:45, approx:true},
@@ -351,31 +293,6 @@ const EVENTS = [
   },
 
   // ---------------- NASCAR CUP SERIES (single 10-race Chase) ----------------
-  { series:"nascar", name:"Enjoy Illinois 300", location:"World Wide Technology Raceway, Madison, IL", dateRange:"Sep 13 · Chase Rd 2 of 10",
-    sessions:[{type:"Race", start:"2026-09-13T19:00:00Z", dur:210}],
-    watch:[
-      {name:"USA Network", url:"https://www.usanetwork.com/", note:"Cable/satellite."},
-      {name:"HBO Max", url:"https://www.max.com/", note:"Live in-car streams."},
-    ]
-  },
-  { series:"nascar", name:"Bass Pro Shops Night Race", location:"Bristol Motor Speedway, TN", dateRange:"Sep 18–19 · Chase Rd 3 of 10",
-    sessions:[
-      {type:"Practice & Qualifying", start:"2026-09-18T20:30:00Z", dur:120},
-      {type:"Race", start:"2026-09-19T23:30:00Z", dur:210},
-    ],
-    watch:[
-      {name:"truTV", url:"https://www.trutv.com/", note:"Practice & qualifying."},
-      {name:"USA Network", url:"https://www.usanetwork.com/", note:"Race broadcast."},
-      {name:"HBO Max", url:"https://www.max.com/"},
-    ]
-  },
-  { series:"nascar", name:"Hollywood Casino 400", location:"Kansas Speedway, Kansas City, KS", dateRange:"Sep 27 · Chase Rd 4 of 10",
-    sessions:[{type:"Race", start:"2026-09-27T23:30:00Z", dur:180}],
-    watch:[
-      {name:"USA Network", url:"https://www.usanetwork.com/"},
-      {name:"HBO Max", url:"https://www.max.com/"},
-    ]
-  },
   { series:"nascar", name:"South Point 400", location:"Las Vegas Motor Speedway, NV", dateRange:"Oct 4 · Chase Rd 5 of 10",
     sessions:[{type:"Race", start:"2026-10-04T21:30:00Z", dur:180}],
     watch:[
@@ -420,7 +337,7 @@ const EVENTS = [
   },
 
   // ---------------- WRC ----------------
-  { series:"wrc", name:"Rally Italia Sardegna", location:"Olbia, Sardinia, Italy", dateRange:"Oct 1–4",
+  { series:"wrc", name:"Rally Italia Sardegna", location:"Olbia, Sardinia, Italy", dateRange:"Oct 1–4 · Season finale",
     sessions:[
       {type:"Shakedown",              start:"2026-10-01T12:00:00Z", tba:true},
       {type:"Leg 1 (Stages)",         start:"2026-10-02T12:00:00Z", tba:true},
@@ -428,31 +345,21 @@ const EVENTS = [
       {type:"Leg 3 + Power Stage",    start:"2026-10-04T12:00:00Z", tba:true},
     ],
     watch:[
-      {name:"Rally.TV", url:"https://www.rally.tv/en", note:"Official global stream — every stage."},
+      {name:"Rally.TV", url:"https://www.rally.tv/en", note:"Official global stream — every stage. Now the season finale: the Nov 11–14 Rally Saudi Arabia round was cancelled on Sept 17 amid the regional conflict and will not be replaced — title decided here instead."},
       {name:"YouTube", url:"https://www.youtube.com/@WRC", note:"Free highlights and select live stages."},
-    ]
-  },
-  { series:"wrc", name:"Rally Saudi Arabia", location:"Saudi Arabia", dateRange:"Nov 11–14 · Season finale",
-    sessions:[
-      {type:"Shakedown",              start:"2026-11-11T12:00:00Z", tba:true},
-      {type:"Leg 1 (Stages)",         start:"2026-11-12T12:00:00Z", tba:true},
-      {type:"Leg 2 (Stages)",         start:"2026-11-13T12:00:00Z", tba:true},
-      {type:"Leg 3 + Power Stage",    start:"2026-11-14T12:00:00Z", tba:true},
-    ],
-    watch:[
-      {name:"Rally.TV", url:"https://www.rally.tv/en", note:"Title decided on the final Power Stage."},
-      {name:"YouTube", url:"https://www.youtube.com/@WRC"},
     ]
   },
 
   // ---------------- SUPER FORMULA ----------------
-  { series:"superformula", name:"Fuji Round", location:"Fuji Speedway, Japan", dateRange:"Oct 10–11",
+  { series:"superformula", name:"Fuji Rounds 9 & 10", location:"Fuji Speedway, Japan", dateRange:"Oct 9–11",
     sessions:[
-      {type:"Practice",   start:"2026-10-10T02:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-10T06:00:00Z", tba:true},
-      {type:"Race",       start:"2026-10-11T05:00:00Z", tba:true},
+      {type:"Practice",     start:"2026-10-09T02:00:00Z", tba:true},
+      {type:"Qualifying 1", start:"2026-10-10T02:00:00Z", tba:true},
+      {type:"Race 1",       start:"2026-10-10T06:00:00Z", tba:true},
+      {type:"Qualifying 2", start:"2026-10-11T02:00:00Z", tba:true},
+      {type:"Race 2",       start:"2026-10-11T05:00:00Z", tba:true},
     ],
-    watch:[{name:"Super Formula Official", url:"https://www.youtube.com/superformulavideo/live", note:"Free live stream on the series' own YouTube channel, worldwide."}]
+    watch:[{name:"Super Formula Official", url:"https://www.youtube.com/superformulavideo/live", note:"Free live stream on the series' own YouTube channel, worldwide — two races across the weekend (Rounds 9 & 10)."}]
   },
   { series:"superformula", name:"Suzuka Round", location:"Suzuka Circuit, Japan", dateRange:"Nov 20–22 · Season finale",
     sessions:[
@@ -475,14 +382,6 @@ const EVENTS = [
   },
 
   // ---------------- SUPER GT ----------------
-  { series:"supergt", name:"Sugo GT 300km", location:"Sportsland Sugo, Japan", dateRange:"Sep 18–20",
-    sessions:[
-      {type:"Practice",   start:"2026-09-18T12:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-09-19T12:00:00Z", tba:true},
-      {type:"Race",       start:"2026-09-20T12:00:00Z", tba:true},
-    ],
-    watch:[{name:"RACER Network", url:"https://racer.com/watch", note:"New U.S./Canada broadcast home for 2026 — every round live and on demand."}]
-  },
   { series:"supergt", name:"Autopolis GT 300km", location:"Autopolis, Japan", dateRange:"Oct 16–18",
     sessions:[
       {type:"Practice",   start:"2026-10-16T12:00:00Z", tba:true},
@@ -491,13 +390,14 @@ const EVENTS = [
     ],
     watch:[{name:"RACER Network", url:"https://racer.com/watch"}]
   },
-  { series:"supergt", name:"Motegi GT 300km", location:"Mobility Resort Motegi, Japan", dateRange:"Nov 6–8 · Season finale",
+  { series:"supergt", name:"Motegi Grand Final (Rounds 7 & 8)", location:"Mobility Resort Motegi, Japan", dateRange:"Nov 7–8 · Season finale",
     sessions:[
-      {type:"Practice",   start:"2026-11-06T09:30:00Z", approx:true},
-      {type:"Qualifying", start:"2026-11-07T12:00:00Z", tba:true},
-      {type:"Race",       start:"2026-11-08T12:00:00Z", tba:true},
+      {type:"Qualifying 1", start:"2026-11-07T03:00:00Z", tba:true},
+      {type:"Race 1",       start:"2026-11-07T12:00:00Z", tba:true},
+      {type:"Qualifying 2", start:"2026-11-08T03:00:00Z", tba:true},
+      {type:"Race 2",       start:"2026-11-08T12:00:00Z", tba:true},
     ],
-    watch:[{name:"RACER Network", url:"https://racer.com/watch", note:"Title decided here."}]
+    watch:[{name:"RACER Network", url:"https://racer.com/watch", note:"Title decided here — a doubleheader finale (two races) added as the season's Sepang-replacement round."}]
   },
 
   // ---------------- ASIAN LE MANS SERIES ----------------
@@ -564,16 +464,15 @@ const EVENTS = [
 // ============ STANDINGS ============
 const STANDINGS = [
   { group:"USA", items:[
-    { key:"nascar", status:"Chase · Rd 2 of 10 (after Gateway)", entries:[
-        {pos:1, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,168 pts"},
-        {pos:2, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,159 pts"},
-        {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,150 pts"},
-      ], note:"Blaney (2,135), Reddick (2,126), Logano and Gibbs (2,117), Briscoe (2,109), Hocevar (2,080) and Wallace (2,078) fill out the top 10.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
-    { key:"imsa", status:"GTP · in progress", entries:[
-        {pos:1, name:"Jack Aitken", team:"—"},
-        {pos:2, name:"Laurin Heinrich", team:"—"},
-        {pos:3, name:"Nasr / Andlauer", team:"—"},
-      ], note:"Exact point gaps were inconsistent across recent coverage — check IMSA's official standings for the current tally.", link:"https://www.imsa.com/weathertech/standings/" },
+    { key:"nascar", status:"Chase · Rd 4 of 10 (after Kansas)", entries:[
+        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,282 pts"},
+        {pos:2, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,256 pts"},
+        {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,232 pts"},
+      ], note:"Logano (2,215), Blaney (2,191), Gibbs (2,188), Reddick (2,171), Briscoe (2,159) and Cindric and Wallace, tied at 2,142, fill out the top 10. The 2026 Chase reverted to a straight 10-race points format with no elimination cutoffs — every Chase driver stays in it through Phoenix.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
+    { key:"imsa", status:"GTP · after Battle on the Bricks (Indianapolis)", entries:[
+        {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)"},
+        {pos:2, name:"Heinrich / Estre", team:"Porsche Penske Motorsport"},
+      ], note:"BMW M Team WRT won at Indianapolis, but Aitken/Bamber's runner-up finish extended their points lead to 147 over Heinrich/Estre heading into the Oct 3 Petit Le Mans finale. Exact point totals were inconsistent across secondary coverage — confirm at IMSA's official standings.", link:"https://www.imsa.com/weathertech/standings/" },
     { key:"indycar", status:"Season complete · Sept 6", entries:[
         {pos:1, name:"Alex Palou", team:"Chip Ganassi Racing", pts:"Champion"},
         {pos:2, name:"Kyle Kirkwood", team:"Andretti", pts:"−86"},
@@ -598,36 +497,38 @@ const STANDINGS = [
         {pos:4, name:"Lando Norris", team:"McLaren", pts:"186 pts"},
         {pos:5, name:"Charles Leclerc", team:"Ferrari", pts:"167 pts"},
       ], note:"Verstappen (145), Piastri (120), Hadjar (71), Lawson (59) and Gasly (41) round out the top 10.", link:"https://www.formula1.com/en/results/2026/drivers" },
-    { key:"motogp", status:"In progress · after Misano, 8 rounds left", entries:[
-        {pos:1, name:"Marc Márquez", team:"Ducati Lenovo", pts:"274 pts"},
-        {pos:1, name:"Jorge Martín", team:"Aprilia Racing", pts:"274 pts"},
-        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"241 pts"},
-      ], note:"Márquez and Martín are tied on points — Márquez leads on countback (5 wins to 1). Di Giannantonio, Acosta and Ogura complete the top 6.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
-    { key:"wec", status:"Hypercar · after Round 7 of 8 (COTA)", entries:[
-        {pos:1, name:"Frijns / Rast", team:"BMW M Team WRT", pts:"75 pts"},
-        {pos:1, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing", pts:"75 pts"},
-      ], note:"Four-way tie at the top — decided at the Monza finale, Nov 6–8.", link:"https://www.fiawec.com/en/page/drivers-classification" },
-    { key:"wrc", status:"After Round 10 (Finland) · 2 rounds left", entries:[
-        {pos:1, name:"Elfyn Evans", team:"Toyota Gazoo Racing", pts:"216 pts"},
-        {pos:2, name:"Sami Pajari", team:"Toyota Gazoo Racing", pts:"196 pts"},
-        {pos:3, name:"Oliver Solberg", team:"—", pts:"175 pts"},
-      ], link:"https://www.wrc.com/en/calendar" },
+    { key:"motogp", status:"In progress · after Austria, 7 rounds left", entries:[
+        {pos:1, name:"Jorge Martín", team:"Aprilia Racing", pts:"306 pts"},
+        {pos:2, name:"Marc Márquez", team:"Ducati Lenovo", pts:"294 pts"},
+        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"269 pts"},
+      ], note:"Pedro Acosta's maiden MotoGP win at Austria moved him up to 4th. Martín now leads outright after the two were tied entering the weekend — exact gaps for 3rd on down varied slightly across secondary coverage; confirm at MotoGP's official standings.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
+    { key:"wec", status:"Hypercar · after Round 6 of 8 (Fuji)", entries:[
+        {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"89 pts"},
+        {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"79 pts"},
+      ], note:"The #8 Toyota's home win at Fuji — where Saturday's rain-hit qualifying was cancelled and the grid set from practice times — took them from 3rd to the points lead. Decided at the Monza finale, Nov 6–8. Point totals are from secondary post-round coverage; confirm at FIA WEC's official site.", link:"https://www.fiawec.com/en/page/drivers-classification" },
+    { key:"wrc", status:"After Round 12 (Chile) · Sardegna finale next", entries:[
+        {pos:1, name:"Elfyn Evans", team:"Toyota Gazoo Racing", pts:"230 pts"},
+        {pos:2, name:"Sami Pajari", team:"Toyota Gazoo Racing", pts:"213 pts"},
+        {pos:3, name:"Oliver Solberg", team:"—", pts:"209 pts"},
+      ], note:"Evans leads Pajari by 17 and Solberg by 21 into the Oct 1–4 Sardegna finale — now the last round of the season after Rally Saudi Arabia was cancelled amid the regional conflict. Toyota has already clinched the manufacturers' title.", link:"https://www.wrc.com/en/calendar" },
     { key:"fe", status:"Season 12 complete · Season 13 opens Dec 18–19 (Jeddah)", entries:[
         {pos:1, name:"Pascal Wehrlein", team:"—", pts:"169 pts"},
       ], note:"Wehrlein led entering the season's final rounds in August — final-standings confirmation wasn't available at time of writing. Season 13 starts fresh with zero points for everyone at Jeddah.", link:"https://www.fiaformulae.com/en/results-and-standings" },
-    { key:"f2", status:"In progress · 3 rounds left", entries:[
-        {pos:1, name:"Nikola Tsolov", team:"—", pts:"171 pts"},
-        {pos:2, name:"Rafael Câmara", team:"—", pts:"166 pts"},
-        {pos:3, name:"Gabriele Minì", team:"—", pts:"147 pts"},
-      ], link:"https://www.fiaformula2.com/Standings" },
+    { key:"f2", status:"In progress · 2 rounds left", entries:[
+        {pos:1, name:"Rafael Câmara", team:"—", pts:"207 pts"},
+        {pos:2, name:"Nikola Tsolov", team:"—", pts:"200 pts"},
+        {pos:3, name:"Alexander Dunne", team:"—", pts:"189 pts"},
+      ], note:"Câmara took the lead late in Baku after Tsolov retired in a Friday crash. Minì (163) is closest outside the top three. The two remaining rounds (Qatar, Abu Dhabi) share F1's Middle East scheduling uncertainty.", link:"https://www.fiaformula2.com/Standings" },
     { key:"f3", status:"Season complete · Madrid, Sept 13", entries:[
         {pos:1, name:"Ugo Ugochukwu", team:"Campos Racing", pts:"159 pts — Champion"},
         {pos:2, name:"Freddie Slater", team:"TRIDENT", pts:"145 pts"},
         {pos:3, name:"Tuukka Taponen", team:"MP Motorsport", pts:"109 pts"},
       ], link:"https://www.fiaformula3.com/Standings" },
-    { key:"f1academy", status:"In progress · 2 rounds left", entries:[
-        {pos:1, name:"Alisha Palmowski", team:"—", pts:"led after Rd 2"},
-      ], note:"Standings after Rounds 3–4 (Silverstone, Zandvoort) weren't available at time of writing — check f1academy.com.", link:"https://www.f1academy.com/Racing-Series/Standings" },
+    { key:"f1academy", status:"In progress · after Zandvoort, 2 rounds left", entries:[
+        {pos:1, name:"Alisha Palmowski", team:"—", pts:"136 pts"},
+        {pos:2, name:"Emma Felbermayr", team:"—", pts:"88 pts"},
+        {pos:3, name:"Nina Gademan", team:"—", pts:"71 pts"},
+      ], note:"Alba Hurup Larsen and Zandvoort winner Payton Westcott are fighting over 4th — exact totals for that spot weren't confirmed across coverage; check f1academy.com.", link:"https://www.f1academy.com/Racing-Series/Standings" },
     { key:"italianf4", status:"In progress", entries:[
         {pos:1, name:"Luka Sammalisto", team:"US Racing", pts:"leads by 47"},
         {pos:2, name:"David Cosma-Cristofor", team:"—"},
@@ -637,23 +538,25 @@ const STANDINGS = [
         {pos:1, name:"Emanuele Olivieri", team:"R-ace GP", pts:"Champion, +9"},
         {pos:2, name:"Sebastian Wheldon", team:"MP Motorsport"},
       ], link:"https://api.fia.com/events/fia-formula-regional-european-championship/season-2026/fia-formula-regional-european" },
-    { key:"elms", status:"After Round 4 (pre-Silverstone) · 1 round left", entries:[
-        {pos:1, name:"Forestier Racing by Panis", team:"—", pts:"70 pts"},
-        {pos:1, name:"United Autosports", team:"—", pts:"70 pts"},
-      ], note:"Tied on points after 4 rounds across LMP2, LMP3 and LMGT3 — Forestier leads on countback (2 wins to 1). Silverstone (Sept 11–13) results weren't available at time of writing; only the Algarve finale remains.", link:"https://www.motorsport.com/elms/standings/2026/" },
+    { key:"elms", status:"After Round 5 (Silverstone) · Algarve finale next", entries:[
+        {pos:1, name:"United Autosports", team:"LMP2", pts:"85 pts"},
+        {pos:1, name:"CLX Motorsport", team:"LMP3", pts:"84 pts"},
+        {pos:1, name:"Team Qatar by Iron Lynx", team:"LMGT3", pts:"class leader"},
+      ], note:"United Autosports pulled clear of Forestier Racing by Panis (72) in LMP2; CLX leads R-ace GP (75) in LMP3; Team Qatar leads LMGT3 by 3 over TF Sport. All three titles remain open into the Oct 8–10 Algarve finale.", link:"https://www.motorsport.com/elms/standings/2026/" },
     { key:"porschesupercup", status:"Season complete · Monza, Sept 4–6", entries:[
         {pos:1, name:"Flynt Schuring", team:"Porsche Junior", pts:"Champion, 3 wins"},
       ], link:"https://racing.porsche.com/mobil-1-supercup/results-season-2026" },
   ]},
   { group:"Asia", items:[
-    { key:"superformula", status:"In progress · 2 rounds left", entries:[
-        {pos:1, name:"Kakunoshin Ohta", team:"—", pts:"52 pts"},
-        {pos:2, name:"Igor Fraga", team:"—", pts:"39 pts"},
-      ], note:"Places beyond 2nd weren't consistent across available coverage — check the official site.", link:"https://www.driverdb.com/championships/super-formula/2026/standings" },
-    { key:"supergt", status:"GT500 & GT300 · 3 rounds left", entries:[
-        {pos:1, name:"Tsuboi / Yamashita", team:"TGR Team au TOM'S", pts:"GT500 leaders"},
-        {pos:1, name:"de Oliveira / Kimura", team:"Kondo Racing", pts:"GT300 leaders"},
-      ], note:"Two separate classes (GT500 and GT300) run together — each has its own champion. Season cut to seven rounds after the Sepang round was postponed indefinitely.", link:"https://www.motorsport.com/supergt/standings/2026/" },
+    { key:"superformula", status:"In progress · after Rd 8 (SUGO), 2 rounds left", entries:[
+        {pos:1, name:"Kakunoshin Ohta", team:"DOCOMO TEAM DANDELION RACING", pts:"105 pts"},
+        {pos:2, name:"Ayumu Iwasa", team:"TEAM MUGEN", pts:"59.5 pts"},
+        {pos:3, name:"Nirei Fukuzumi", team:"—", pts:"58 pts"},
+      ], note:"Fraga (51) dropped to 4th after SUGO. Remaining rounds: the Oct 9–11 Fuji doubleheader and the Nov 20–22 Suzuka finale.", link:"https://www.driverdb.com/championships/super-formula/2026/standings" },
+    { key:"supergt", status:"GT500 & GT300 · after Sugo, 2 rounds left", entries:[
+        {pos:1, name:"Tsuboi / Yamashita", team:"TGR Team au TOM'S", pts:"58 pts (GT500)"},
+        {pos:1, name:"de Oliveira / Kimura", team:"Kondo Racing", pts:"GT300 leaders, ~21-pt cushion"},
+      ], note:"Both leaders extended their advantage at Sugo — Honda's Astemo Real Racing (45, GT500) and D'station Racing (GT300) are the closest challengers. Season cut to seven rounds after Sepang's postponement; concludes at Motegi's Nov 7–8 doubleheader finale.", link:"https://www.motorsport.com/supergt/standings/2026/" },
     { key:"asianlemans", status:"2026–27 season not yet underway · opens Nov 13", entries:[], note:"This edition is branded and organized as the Asian Le Mans Series but the entire six-round calendar was relocated to Europe (Paul Ricard, Jerez, Portimão) for geopolitical reasons.", link:"https://www.asianlemansseries.com/" },
     { key:"supertaikyu", status:"In progress · 2 rounds left", entries:[
         {pos:1, name:"Hitonowa The Team Standard", team:"—", pts:"ST-TCR class leader"},
@@ -711,33 +614,35 @@ const MATH_SERIES = [
       {pos:9,name:"Liam Lawson",team:"RB F1 Team",pts:"59 pts",raw:59},
       {pos:10,name:"Pierre Gasly",team:"Alpine",pts:"41 pts",raw:41},
     ]).map(e=>({...e, raw: e.raw ?? parseInt(e.pts)})) },
-  { key:"motogp", remaining:8, raceLabels:["AUT","JPN","INA","AUS","MAL","QAT","POR","VAL"], entries:[
-      {pos:1,name:"Marc Márquez",team:"Ducati Lenovo",raw:274},
-      {pos:2,name:"Jorge Martín",team:"Aprilia Racing",raw:274},
-      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:241},
-      {pos:4,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:223},
-      {pos:5,name:"Pedro Acosta",team:"Red Bull KTM",raw:209},
+  { key:"motogp", remaining:7, raceLabels:["JPN","INA","AUS","MAL","QAT","POR","VAL"], entries:[
+      {pos:1,name:"Jorge Martín",team:"Aprilia Racing",raw:306},
+      {pos:2,name:"Marc Márquez",team:"Ducati Lenovo",raw:294},
+      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:269},
+      {pos:4,name:"Pedro Acosta",team:"Red Bull KTM",raw:234},
+      {pos:5,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:223},
       {pos:6,name:"Ai Ogura",team:"Trackhouse Aprilia",raw:203},
       {pos:7,name:"Raul Fernandez",team:"Trackhouse Aprilia",raw:199},
       {pos:8,name:"Alex Márquez",team:"Gresini Ducati",raw:153},
       {pos:9,name:"Francesco Bagnaia",team:"Ducati",raw:143},
       {pos:10,name:"Fermin Aldeguer",team:"Gresini Ducati",raw:105},
     ]},
-  { key:"nascar", remaining:8, raceLabels:["BRI","KAN","LVS","ROV","PHX","TAL","MAR","HOM"], entries:[
-      {pos:1,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2168},
-      {pos:2,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2159},
-      {pos:3,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2150},
-      {pos:4,name:"Ryan Blaney",team:"Team Penske",raw:2135},
-      {pos:5,name:"Tyler Reddick",team:"23XI Racing",raw:2126},
-      {pos:6,name:"Joey Logano",team:"Team Penske",raw:2117},
-      {pos:7,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2117},
-      {pos:8,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2109},
-      {pos:9,name:"Carson Hocevar",team:"Spire Motorsports",raw:2080},
-      {pos:10,name:"Bubba Wallace",team:"23XI Racing",raw:2078},
+  { key:"nascar", remaining:6, raceLabels:["LVS","ROV","PHX","TAL","MAR","HOM"], entries:[
+      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2282},
+      {pos:2,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2256},
+      {pos:3,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2232},
+      {pos:4,name:"Joey Logano",team:"Team Penske",raw:2215},
+      {pos:5,name:"Ryan Blaney",team:"Team Penske",raw:2191},
+      {pos:6,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2188},
+      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2171},
+      {pos:8,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2159},
+      {pos:9,name:"Austin Cindric",team:"Team Penske",raw:2142},
+      {pos:9,name:"Bubba Wallace",team:"23XI Racing",raw:2142},
     ]},
   { key:"superformula", remaining:2, raceLabels:["FUJ","SUZ"], entries:[
-      {pos:1,name:"Kakunoshin Ohta",team:"—",raw:52},
-      {pos:2,name:"Igor Fraga",team:"—",raw:39},
+      {pos:1,name:"Kakunoshin Ohta",team:"DOCOMO TEAM DANDELION RACING",raw:105},
+      {pos:2,name:"Ayumu Iwasa",team:"TEAM MUGEN",raw:59.5},
+      {pos:3,name:"Nirei Fukuzumi",team:"—",raw:58},
+      {pos:4,name:"Igor Fraga",team:"—",raw:51},
     ]},
 ];
 
@@ -745,12 +650,12 @@ const MATH_SERIES = [
 const TIER_WEIGHT = { f2:9, f3:7, f1academy:6, indynxt:6, freca:5, fregam:5, italianf4:3, f4us:3 };
 const POS_MULT = { 1:1, 2:0.75, 3:0.55 };
 const PROSPECTS = [
-  {name:"Nikola Tsolov", cat:"f2", pos:1, note:"Leads F2 by 5, 3 rounds left"},
-  {name:"Rafael Câmara", cat:"f2", pos:2, note:"6 back in F2"},
+  {name:"Rafael Câmara", cat:"f2", pos:1, note:"Leads F2 by 7, 2 rounds left"},
+  {name:"Nikola Tsolov", cat:"f2", pos:2, note:"7 back in F2"},
   {name:"Ugo Ugochukwu", cat:"f3", pos:1, note:"2026 F3 champion"},
   {name:"Freddie Slater", cat:"f3", pos:2, note:"F3 runner-up, 14 back"},
   {name:"Nikita Johnson", cat:"indynxt", pos:1, note:"2026 Indy NXT champion"},
-  {name:"Alisha Palmowski", cat:"f1academy", pos:1, note:"Led F1 Academy after Rd 2"},
+  {name:"Alisha Palmowski", cat:"f1academy", pos:1, note:"Leads F1 Academy by 48 after Zandvoort"},
   {name:"Emanuele Olivieri", cat:"freca", pos:1, note:"2026 FRECA champion"},
   {name:"Sebastian Wheldon", cat:"freca", pos:2, note:"FRECA runner-up, −9"},
   {name:"Luka Sammalisto", cat:"italianf4", pos:1, note:"Leads Italian F4 by 47"},
