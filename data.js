@@ -23,16 +23,6 @@ const FILTER_ORDER = ["f1","f2","f1academy","wec","elms","imsa","motogp","nascar
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
-  { series:"f1", name:"Bahrain Grand Prix", location:"Sepang International Circuit, Malaysia — relocated from Bahrain for 2026", dateRange:"Oct 2–4",
-    sessions:[
-      {type:"Practice 1", start:"2026-10-02T08:00:00Z", tba:true},
-      {type:"Practice 2", start:"2026-10-02T11:00:00Z", tba:true},
-      {type:"Practice 3", start:"2026-10-03T08:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-03T11:00:00Z", tba:true},
-      {type:"Race",       start:"2026-10-04T09:00:00Z", tba:true, dur:120},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"All sessions live. This round was caught missing from the original hand-built calendar — confirmed via live schedule data on Sept 20, 2026."}]
-  },
   { series:"f1", name:"Singapore Grand Prix", location:"Marina Bay Street Circuit, Singapore", dateRange:"Oct 9–11 · Sprint weekend",
     sessions:[
       {type:"Practice 1",        start:"2026-10-09T08:30:00Z", dur:60},
@@ -172,35 +162,7 @@ const EVENTS = [
     ]
   },
 
-  // ---------------- IMSA ----------------
-  { series:"imsa", name:"Motul Petit Le Mans", location:"Michelin Raceway Road Atlanta, Braselton, GA", dateRange:"Oct 1–3 · Season finale",
-    sessions:[
-      {type:"Practice",   start:"2026-10-01T17:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-02T20:00:00Z", tba:true},
-      {type:"Race (10h)", start:"2026-10-03T15:05:00Z", dur:600, approx:true},
-    ],
-    watch:[
-      {name:"NBC", url:"https://www.nbc.com/nbc-sports", note:"Opening hours air live on broadcast NBC."},
-      {name:"Peacock", url:"https://www.peacocktv.com/", note:"All 10 hours, flag to flag."},
-    ]
-  },
-
   // ---------------- MOTOGP ----------------
-  { series:"motogp", name:"Japanese Grand Prix", location:"Twin Ring Motegi, Japan", dateRange:"Oct 2–4",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-10-02T01:45:00Z", dur:45, approx:true},
-      {type:"Practice",        start:"2026-10-02T06:00:00Z", dur:45, approx:true},
-      {type:"Free Practice 2", start:"2026-10-03T01:10:00Z", dur:30, approx:true},
-      {type:"Qualifying",      start:"2026-10-03T01:50:00Z", dur:35, approx:true},
-      {type:"Sprint",          start:"2026-10-03T06:00:00Z", dur:30, approx:true},
-      {type:"Race",            start:"2026-10-04T05:00:00Z", dur:45, approx:true},
-    ],
-    watch:[
-      {name:"Fox One", url:"https://www.foxsports.com/foxone"},
-      {name:"FS1 / FS2", url:"https://www.foxsports.com/live"},
-      {name:"The MotoGP Channel", url:"https://www.motogp.com/en/videos/motogp-channel", note:"Free, ad-supported."},
-    ]
-  },
   { series:"motogp", name:"Indonesian Grand Prix", location:"Mandalika Circuit, Lombok", dateRange:"Oct 9–11",
     sessions:[
       {type:"Free Practice 1", start:"2026-10-09T02:45:00Z", dur:45, approx:true},
@@ -293,13 +255,6 @@ const EVENTS = [
   },
 
   // ---------------- NASCAR CUP SERIES (single 10-race Chase) ----------------
-  { series:"nascar", name:"South Point 400", location:"Las Vegas Motor Speedway, NV", dateRange:"Oct 4 · Chase Rd 5 of 10",
-    sessions:[{type:"Race", start:"2026-10-04T21:30:00Z", dur:180}],
-    watch:[
-      {name:"USA Network", url:"https://www.usanetwork.com/"},
-      {name:"HBO Max", url:"https://www.max.com/"},
-    ]
-  },
   { series:"nascar", name:"Bank of America Roval 400", location:"Charlotte Motor Speedway Roval, NC", dateRange:"Oct 11 · Chase Rd 6 of 10",
     sessions:[{type:"Race", start:"2026-10-11T19:00:00Z", dur:180}],
     watch:[
@@ -333,20 +288,6 @@ const EVENTS = [
     watch:[
       {name:"NBC", url:"https://www.nbc.com/nbc-sports", note:"2026 Cup Series champion crowned."},
       {name:"Peacock", url:"https://www.peacocktv.com/"},
-    ]
-  },
-
-  // ---------------- WRC ----------------
-  { series:"wrc", name:"Rally Italia Sardegna", location:"Olbia, Sardinia, Italy", dateRange:"Oct 1–4 · Season finale",
-    sessions:[
-      {type:"Shakedown",              start:"2026-10-01T12:00:00Z", tba:true},
-      {type:"Leg 1 (Stages)",         start:"2026-10-02T12:00:00Z", tba:true},
-      {type:"Leg 2 (Stages)",         start:"2026-10-03T12:00:00Z", tba:true},
-      {type:"Leg 3 + Power Stage",    start:"2026-10-04T12:00:00Z", tba:true},
-    ],
-    watch:[
-      {name:"Rally.TV", url:"https://www.rally.tv/en", note:"Official global stream — every stage. Now the season finale: the Nov 11–14 Rally Saudi Arabia round was cancelled on Sept 17 amid the regional conflict and will not be replaced — title decided here instead."},
-      {name:"YouTube", url:"https://www.youtube.com/@WRC", note:"Free highlights and select live stages."},
     ]
   },
 
@@ -469,10 +410,10 @@ const STANDINGS = [
         {pos:2, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,256 pts"},
         {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,232 pts"},
       ], note:"Logano (2,215), Blaney (2,191), Gibbs (2,188), Reddick (2,171), Briscoe (2,159) and Cindric and Wallace, tied at 2,142, fill out the top 10. The 2026 Chase reverted to a straight 10-race points format with no elimination cutoffs — every Chase driver stays in it through Phoenix.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
-    { key:"imsa", status:"GTP · after Battle on the Bricks (Indianapolis)", entries:[
-        {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)"},
+    { key:"imsa", status:"Season complete · Petit Le Mans, Oct 3", entries:[
+        {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)", pts:"GTP Champions"},
         {pos:2, name:"Heinrich / Estre", team:"Porsche Penske Motorsport"},
-      ], note:"BMW M Team WRT won at Indianapolis, but Aitken/Bamber's runner-up finish extended their points lead to 147 over Heinrich/Estre heading into the Oct 3 Petit Le Mans finale. Exact point totals were inconsistent across secondary coverage — confirm at IMSA's official standings.", link:"https://www.imsa.com/weathertech/standings/" },
+      ], note:"Aitken/Bamber's points lead held up at the Road Atlanta finale to clinch the GTP title. Porsche Penske actually won the race itself outright (Vanthoor/Estre/Campbell in the #6, with Estre doubling up from his regular GTP seat) but it wasn't enough to deny Aitken/Bamber the championship. Exact final point margins were inconsistent across secondary coverage — confirm at IMSA's official standings.", link:"https://www.imsa.com/weathertech/standings/" },
     { key:"indycar", status:"Season complete · Sept 6", entries:[
         {pos:1, name:"Alex Palou", team:"Chip Ganassi Racing", pts:"Champion"},
         {pos:2, name:"Kyle Kirkwood", team:"Andretti", pts:"−86"},
@@ -490,7 +431,7 @@ const STANDINGS = [
     { key:"fregam", status:"In progress · concludes October", entries:[], note:"Current 2026 standings weren't available at time of writing. 2025 champion was Titus Sherlock (Crosslink Motorsports).", link:"https://en.wikipedia.org/wiki/2026_Formula_Regional_Americas_Championship" },
   ]},
   { group:"Europe", items:[
-    { key:"f1", status:"In progress · 9 rounds left", entries:[
+    { key:"f1", status:"In progress · 7 rounds left", entries:[
         {pos:1, name:"Kimi Antonelli", team:"Mercedes", pts:"292 pts"},
         {pos:2, name:"George Russell", team:"Mercedes", pts:"211 pts"},
         {pos:3, name:"Lewis Hamilton", team:"Ferrari", pts:"191 pts"},
@@ -506,11 +447,11 @@ const STANDINGS = [
         {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"89 pts"},
         {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"79 pts"},
       ], note:"The #8 Toyota's home win at Fuji — where Saturday's rain-hit qualifying was cancelled and the grid set from practice times — took them from 3rd to the points lead. Decided at the Monza finale, Nov 6–8. Point totals are from secondary post-round coverage; confirm at FIA WEC's official site.", link:"https://www.fiawec.com/en/page/drivers-classification" },
-    { key:"wrc", status:"After Round 12 (Chile) · Sardegna finale next", entries:[
-        {pos:1, name:"Elfyn Evans", team:"Toyota Gazoo Racing", pts:"230 pts"},
-        {pos:2, name:"Sami Pajari", team:"Toyota Gazoo Racing", pts:"213 pts"},
-        {pos:3, name:"Oliver Solberg", team:"—", pts:"209 pts"},
-      ], note:"Evans leads Pajari by 17 and Solberg by 21 into the Oct 1–4 Sardegna finale — now the last round of the season after Rally Saudi Arabia was cancelled amid the regional conflict. Toyota has already clinched the manufacturers' title.", link:"https://www.wrc.com/en/calendar" },
+    { key:"wrc", status:"Season complete · Sardegna, Oct 4", entries:[
+        {pos:1, name:"Elfyn Evans", team:"Toyota Gazoo Racing", pts:"Champion"},
+        {pos:2, name:"Sami Pajari", team:"Toyota Gazoo Racing"},
+        {pos:3, name:"Oliver Solberg", team:"—"},
+      ], note:"Evans and co-driver Scott Martin clinched Evans' first world title at the season-ending Rally Italia Sardegna — the last round of the season after Rally Saudi Arabia's cancellation. Solberg won the rally itself, but it wasn't enough to overturn Evans' points lead. Toyota had already secured the manufacturers' title. Final points margins weren't confirmed across secondary coverage at time of writing — confirm at WRC's official site.", link:"https://www.wrc.com/en/calendar" },
     { key:"fe", status:"Season 12 complete · Season 13 opens Dec 18–19 (Jeddah)", entries:[
         {pos:1, name:"Pascal Wehrlein", team:"—", pts:"169 pts"},
       ], note:"Wehrlein led entering the season's final rounds in August — final-standings confirmation wasn't available at time of writing. Season 13 starts fresh with zero points for everyone at Jeddah.", link:"https://www.fiaformulae.com/en/results-and-standings" },
@@ -606,7 +547,7 @@ const POINTS_NOTE = {
   superformula: "Real 2026 scale (30–25–20…). Treats each remaining round as one race — any separate sprint-race points aren't modeled.",
 };
 const MATH_SERIES = [
-  { key:"f1", remaining:9, raceLabels:["AZE","BAH","SIN","USA","MEX","BRA","LAS","QAT","ABU"],
+  { key:"f1", remaining:7, raceLabels:["SIN","USA","MEX","BRA","LAS","QAT","ABU"],
     entries: STANDINGS.flatMap(g=>g.items).find(i=>i.key==="f1").entries.concat([
       {pos:6,name:"Max Verstappen",team:"Red Bull",pts:"145 pts",raw:145},
       {pos:7,name:"Oscar Piastri",team:"McLaren",pts:"120 pts",raw:120},
