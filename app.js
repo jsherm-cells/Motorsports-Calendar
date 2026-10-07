@@ -349,7 +349,6 @@ function renderStandings(){
                 </li>
               `).join('') : ''}
             </ul>
-            ${item.note ? `<div class="standings-note">${item.note}</div>` : ''}
             <a class="standings-link" href="${item.link}" target="_blank" rel="noopener">Official standings ↗</a>
           </div>`;
         }).join('')}
@@ -659,7 +658,6 @@ async function refreshLiveF1(){
 
     const top10 = entries.slice(0, 10);
     const top5 = entries.slice(0, 5).map(e => ({ ...e, pts: `${e.raw.toLocaleString()} pts` }));
-    const restNote = entries.slice(5, 10).map(e => `${e.name.split(' ').slice(-1)[0]} (${e.raw})`).join(', ');
 
     if(!remaining){
       throw new Error('season complete or schedule unavailable — keep the hand-maintained snapshot');
@@ -673,7 +671,6 @@ async function refreshLiveF1(){
     const standingsItem = STANDINGS.flatMap(g => g.items).find(i => i.key === 'f1');
     standingsItem.entries = top5;
     standingsItem.status = `In progress · ${remaining} round${remaining === 1 ? '' : 's'} left`;
-    if(restNote) standingsItem.note = `${restNote} round out the top 10.`;
 
     LIVE.f1 = { status: 'live', asOf: new Date() };
   }catch(e){
