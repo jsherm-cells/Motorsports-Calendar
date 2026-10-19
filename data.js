@@ -125,19 +125,6 @@ const EVENTS = [
   },
 
   // ---------------- WEC ----------------
-  { series:"wec", name:"6 Hours of Barcelona", location:"Circuit de Barcelona-Catalunya, Spain", dateRange:"Oct 16–18",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-10-16T12:00:00Z", tba:true},
-      {type:"Free Practice 2", start:"2026-10-17T12:00:00Z", tba:true},
-      {type:"Hyperpole",       start:"2026-10-17T12:00:00Z", tba:true},
-      {type:"Race (6h)",       start:"2026-10-18T12:00:00Z", tba:true, dur:360},
-    ],
-    watch:[
-      {name:"FIAWEC+", url:"https://www.fiawec.com/", note:"Official global stream."},
-      {name:"MotorTrend", url:"https://www.motortrend.com/"},
-      {name:"HBO Max", url:"https://www.max.com/"},
-    ]
-  },
   { series:"wec", name:"6 Hours of Monza", location:"Autodromo Nazionale Monza, Italy", dateRange:"Nov 6–8 · Season finale",
     sessions:[
       {type:"Free Practice 1", start:"2026-11-06T12:00:00Z", tba:true},
@@ -230,13 +217,6 @@ const EVENTS = [
   },
 
   // ---------------- NASCAR CUP SERIES (single 10-race Chase) ----------------
-  { series:"nascar", name:"Ambetter Health 400", location:"Phoenix Raceway, AZ", dateRange:"Oct 18 · Chase Rd 7 of 10",
-    sessions:[{type:"Race", start:"2026-10-18T19:00:00Z", dur:180}],
-    watch:[
-      {name:"USA Network", url:"https://www.usanetwork.com/"},
-      {name:"HBO Max", url:"https://www.max.com/"},
-    ]
-  },
   { series:"nascar", name:"YellaWood 500", location:"Talladega Superspeedway, AL", dateRange:"Oct 25 · Chase Rd 8 of 10",
     sessions:[{type:"Race", start:"2026-10-25T18:00:00Z", dur:210}],
     watch:[
@@ -281,14 +261,6 @@ const EVENTS = [
   },
 
   // ---------------- SUPER GT ----------------
-  { series:"supergt", name:"Autopolis GT 300km", location:"Autopolis, Japan", dateRange:"Oct 16–18",
-    sessions:[
-      {type:"Practice",   start:"2026-10-16T12:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-17T12:00:00Z", tba:true},
-      {type:"Race",       start:"2026-10-18T12:00:00Z", tba:true},
-    ],
-    watch:[{name:"RACER Network", url:"https://racer.com/watch"}]
-  },
   { series:"supergt", name:"Motegi Grand Final (Rounds 7 & 8)", location:"Mobility Resort Motegi, Japan", dateRange:"Nov 7–8 · Season finale",
     sessions:[
       {type:"Qualifying 1", start:"2026-11-07T03:00:00Z", tba:true},
@@ -350,11 +322,11 @@ const EVENTS = [
 // ============ STANDINGS ============
 const STANDINGS = [
   { group:"USA", items:[
-    { key:"nascar", status:"Chase · Rd 6 of 10 (after Charlotte)", entries:[
-        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,367 pts"},
-        {pos:2, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,318 pts"},
-        {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,316 pts"},
-      ], note:"Chase Briscoe won the Bank of America 400 at Charlotte (back on the oval layout for 2026) to move up to 4th (2,302). Blaney (2,282), Logano (2,275), Reddick (2,253), Cindric (2,222), Gibbs (2,211) and Hocevar (2,187) fill out the top 10, with Wallace and Elliott tied just behind at 2,182. The 2026 Chase reverted to a straight 10-race points format with no elimination cutoffs — every Chase driver stays in it through Phoenix.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
+    { key:"nascar", status:"Chase · Rd 7 of 10 (after Phoenix)", entries:[
+        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,370 pts"},
+        {pos:2, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,365 pts"},
+        {pos:3, name:"Chase Briscoe", team:"Joe Gibbs Racing", pts:"2,346 pts"},
+      ], note:"Tyler Reddick won at Phoenix, but Larson held onto the points lead despite a right-front tire failure that put him into the wall and left him 34th. Hamlin (2,339), Blaney (2,330), Logano (2,326) and Reddick (2,314) round out a top 7 separated by just 56 points; Cindric (2,240), Gibbs (2,238) and Elliott (2,221) fill 8th–10th. Three Chase rounds remain: Talladega, Martinsville, and the Homestead finale.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
     { key:"imsa", status:"Season complete · Petit Le Mans, Oct 3", entries:[
         {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)", pts:"GTP Champions"},
         {pos:2, name:"Heinrich / Estre", team:"Porsche Penske Motorsport"},
@@ -388,10 +360,10 @@ const STANDINGS = [
         {pos:2, name:"Marc Márquez", team:"Ducati Lenovo", pts:"353 pts"},
         {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"309 pts"},
       ], note:"Bezzecchi won at Mandalika — his first since Mugello and Aprilia's first-ever 1-2-3-4 lockout (Fernández, Martín, Ogura) — while Márquez's sprint win Saturday wasn't enough to hold the points lead after he fell to 6th in Sunday's race. Martín retakes the championship lead by 2. Ogura (259), Acosta (258), Di Giannantonio (245), Fernández (236), Álex Márquez (172), Bagnaia (166) and Aldeguer (125) round out the top 10. Minor lower-order discrepancies across secondary coverage — confirm at MotoGP's official standings.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
-    { key:"wec", status:"Hypercar · after Round 6 of 8 (Fuji)", entries:[
-        {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"89 pts"},
-        {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"79 pts"},
-      ], note:"The #8 Toyota's home win at Fuji — where Saturday's rain-hit qualifying was cancelled and the grid set from practice times — took them from 3rd to the points lead. Decided at the Monza finale, Nov 6–8. Point totals are from secondary post-round coverage; confirm at FIA WEC's official site.", link:"https://www.fiawec.com/en/page/drivers-classification" },
+    { key:"wec", status:"Hypercar · after Round 7 of 8 (Barcelona)", entries:[
+        {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"114 pts"},
+        {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"97 pts"},
+      ], note:"The #8 Toyota won Barcelona — WEC's debut at the Circuit de Barcelona-Catalunya — ahead of the #7 car in a Toyota 1-2, stretching its drivers' lead to 17 points with only the Monza finale (Nov 6–8) left; BMW and Ferrari are now out of contention. Toyota also clinched its eighth manufacturers' title with the result. Point totals are from secondary post-round coverage; confirm at FIA WEC's official site.", link:"https://www.fiawec.com/en/page/drivers-classification" },
     { key:"wrc", status:"Season complete · Sardegna, Oct 4", entries:[
         {pos:1, name:"Elfyn Evans", team:"Toyota Gazoo Racing", pts:"Champion"},
         {pos:2, name:"Sami Pajari", team:"Toyota Gazoo Racing"},
@@ -440,10 +412,10 @@ const STANDINGS = [
         {pos:2, name:"Ayumu Iwasa", team:"TEAM MUGEN", pts:"Fuji Race 2 winner"},
         {pos:3, name:"Igor Fraga", team:"PONOS Nakajima Racing", pts:"Fuji Race 1 winner"},
       ], note:"Fraga won Saturday's Race 1 at Fuji for his first full-length SF victory; Iwasa won a chaotic, crash-marked Race 2 Sunday after title leader Ohta retired following contact with Fraga. Ohta's points lead narrowed from roughly 48 to the low-30s, but exact updated totals were reported inconsistently across outlets at time of writing — confirm at Super Formula's official site. The Nov 20–22 Suzuka finale decides the title.", link:"https://www.driverdb.com/championships/super-formula/2026/standings" },
-    { key:"supergt", status:"GT500 & GT300 · after Sugo, 2 rounds left", entries:[
-        {pos:1, name:"Tsuboi / Yamashita", team:"TGR Team au TOM'S", pts:"58 pts (GT500)"},
-        {pos:1, name:"de Oliveira / Kimura", team:"Kondo Racing", pts:"GT300 leaders, ~21-pt cushion"},
-      ], note:"Both leaders extended their advantage at Sugo — Honda's Astemo Real Racing (45, GT500) and D'station Racing (GT300) are the closest challengers. Season cut to seven rounds after Sepang's postponement; concludes at Motegi's Nov 7–8 doubleheader finale.", link:"https://www.motorsport.com/supergt/standings/2026/" },
+    { key:"supergt", status:"GT500 & GT300 · after Autopolis, 1 round left", entries:[
+        {pos:1, name:"Tsuboi / Yamashita", team:"TGR Team au TOM'S", pts:"GT500 leaders, narrowed margin"},
+        {pos:1, name:"de Oliveira / Kimura", team:"Kondo Racing", pts:"GT300 leaders"},
+      ], note:"Team Kunimitsu's Yamamoto/Makino won GT500 at Autopolis — their second win of the year — closing to within a few points of leaders Tsuboi/Yamashita (reports vary between 2 and 3 points) with one round left. K-tunes Racing's Nitta/Takagi won GT300, their first win since 2019, but a post-race GT300 points update wasn't available at time of writing. Point totals were reported inconsistently across outlets — confirm at Super GT's official site. Season concludes at Motegi's Nov 7–8 doubleheader finale.", link:"https://www.motorsport.com/supergt/standings/2026/" },
     { key:"asianlemans", status:"2026–27 season not yet underway · opens Nov 13", entries:[], note:"This edition is branded and organized as the Asian Le Mans Series but the entire six-round calendar was relocated to Europe (Paul Ricard, Jerez, Portimão) for geopolitical reasons.", link:"https://www.asianlemansseries.com/" },
     { key:"supertaikyu", status:"In progress · 2 rounds left", entries:[
         {pos:1, name:"Hitonowa The Team Standard", team:"—", pts:"ST-TCR class leader"},
@@ -513,17 +485,17 @@ const MATH_SERIES = [
       {pos:9,name:"Francesco Bagnaia",team:"Ducati",raw:166},
       {pos:10,name:"Fermin Aldeguer",team:"Gresini Ducati",raw:125},
     ]},
-  { key:"nascar", remaining:4, raceLabels:["PHX","TAL","MAR","HOM"], entries:[
-      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2367},
-      {pos:2,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2318},
-      {pos:3,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2316},
-      {pos:4,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2302},
-      {pos:5,name:"Ryan Blaney",team:"Team Penske",raw:2282},
-      {pos:6,name:"Joey Logano",team:"Team Penske",raw:2275},
-      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2253},
-      {pos:8,name:"Austin Cindric",team:"Team Penske",raw:2222},
-      {pos:9,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2211},
-      {pos:10,name:"Carson Hocevar",team:"Spire Motorsports",raw:2187},
+  { key:"nascar", remaining:3, raceLabels:["TAL","MAR","HOM"], entries:[
+      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2370},
+      {pos:2,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2365},
+      {pos:3,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2346},
+      {pos:4,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2339},
+      {pos:5,name:"Ryan Blaney",team:"Team Penske",raw:2330},
+      {pos:6,name:"Joey Logano",team:"Team Penske",raw:2326},
+      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2314},
+      {pos:8,name:"Austin Cindric",team:"Team Penske",raw:2240},
+      {pos:9,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2238},
+      {pos:10,name:"Chase Elliott",team:"Hendrick Motorsports",raw:2221},
     ]},
   { key:"superformula", remaining:1, raceLabels:["SUZ"], entries:[
       {pos:1,name:"Kakunoshin Ohta",team:"DOCOMO TEAM DANDELION RACING",raw:105},
