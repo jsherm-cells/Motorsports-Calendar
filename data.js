@@ -23,16 +23,6 @@ const FILTER_ORDER = ["f1","f2","f1academy","wec","elms","imsa","motogp","nascar
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
-  { series:"f1", name:"United States Grand Prix", location:"Circuit of the Americas, Austin, TX", dateRange:"Oct 23–25",
-    sessions:[
-      {type:"Practice 1", start:"2026-10-23T17:30:00Z", dur:60},
-      {type:"Practice 2", start:"2026-10-23T21:00:00Z", dur:60},
-      {type:"Practice 3", start:"2026-10-24T17:30:00Z", dur:60},
-      {type:"Qualifying", start:"2026-10-24T21:00:00Z", dur:60},
-      {type:"Race",       start:"2026-10-25T19:00:00Z", dur:120},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Home race weekend — all sessions live."}]
-  },
   { series:"f1", name:"Mexico City Grand Prix", location:"Autódromo Hermanos Rodríguez, Mexico City", dateRange:"Oct 30–Nov 1",
     sessions:[
       {type:"Practice 1", start:"2026-10-30T18:30:00Z", dur:60},
@@ -105,15 +95,6 @@ const EVENTS = [
   },
 
   // ---------------- F1 ACADEMY ----------------
-  { series:"f1academy", name:"Austin Round", location:"Circuit of the Americas, Austin, TX", dateRange:"Oct 23–25",
-    sessions:[
-      {type:"Practice",   start:"2026-10-23T12:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-23T12:00:00Z", tba:true},
-      {type:"Race 1",     start:"2026-10-24T12:00:00Z", tba:true},
-      {type:"Race 2",     start:"2026-10-25T12:00:00Z", tba:true},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"Runs alongside the F1 weekend on the F1 TV app."}]
-  },
   { series:"f1academy", name:"Las Vegas Round", location:"Las Vegas Strip Circuit, NV", dateRange:"Nov 19–21 · Season finale",
     sessions:[
       {type:"Practice",   start:"2026-11-19T12:00:00Z", tba:true},
@@ -140,21 +121,6 @@ const EVENTS = [
   },
 
   // ---------------- MOTOGP ----------------
-  { series:"motogp", name:"Australian Grand Prix", location:"Phillip Island Circuit", dateRange:"Oct 23–25",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-10-22T23:45:00Z", dur:45, approx:true},
-      {type:"Practice",        start:"2026-10-23T04:00:00Z", dur:45, approx:true},
-      {type:"Free Practice 2", start:"2026-10-23T23:10:00Z", dur:30, approx:true},
-      {type:"Qualifying",      start:"2026-10-23T23:50:00Z", dur:35, approx:true},
-      {type:"Sprint",          start:"2026-10-24T04:00:00Z", dur:30, approx:true},
-      {type:"Race",            start:"2026-10-25T03:00:00Z", dur:45, approx:true},
-    ],
-    watch:[
-      {name:"Fox One", url:"https://www.foxsports.com/foxone"},
-      {name:"FS1 / FS2", url:"https://www.foxsports.com/live"},
-      {name:"The MotoGP Channel", url:"https://www.motogp.com/en/videos/motogp-channel", note:"Free, ad-supported."},
-    ]
-  },
   { series:"motogp", name:"Malaysian Grand Prix", location:"Sepang International Circuit", dateRange:"Oct 30–Nov 1",
     sessions:[
       {type:"Free Practice 1", start:"2026-10-30T02:45:00Z", dur:45, approx:true},
@@ -217,13 +183,6 @@ const EVENTS = [
   },
 
   // ---------------- NASCAR CUP SERIES (single 10-race Chase) ----------------
-  { series:"nascar", name:"YellaWood 500", location:"Talladega Superspeedway, AL", dateRange:"Oct 25 · Chase Rd 8 of 10",
-    sessions:[{type:"Race", start:"2026-10-25T18:00:00Z", dur:210}],
-    watch:[
-      {name:"NBC", url:"https://www.nbc.com/nbc-sports"},
-      {name:"Peacock", url:"https://www.peacocktv.com/"},
-    ]
-  },
   { series:"nascar", name:"Xfinity 500", location:"Martinsville Speedway, VA", dateRange:"Nov 1 · Chase Rd 9 of 10",
     sessions:[{type:"Race", start:"2026-11-01T19:00:00Z", dur:210}],
     watch:[
@@ -301,14 +260,6 @@ const EVENTS = [
   },
 
   // ---------------- SUPER TAIKYU ----------------
-  { series:"supertaikyu", name:"Okayama Round", location:"Okayama International Circuit, Japan", dateRange:"Oct 24–25",
-    sessions:[
-      {type:"Practice",   start:"2026-10-24T12:00:00Z", tba:true},
-      {type:"Qualifying", start:"2026-10-24T12:00:00Z", tba:true},
-      {type:"Race",       start:"2026-10-25T12:00:00Z", tba:true},
-    ],
-    watch:[{name:"Super Taikyu TV (YouTube)", url:"https://www.youtube.com/@supertaikyutvstaitv5599/streams", note:"Free live stream, Japanese commentary."}]
-  },
   { series:"supertaikyu", name:"Fuji Round", location:"Fuji International Speedway, Japan", dateRange:"Nov 14–15 · Season finale",
     sessions:[
       {type:"Practice",   start:"2026-11-14T12:00:00Z", tba:true},
@@ -322,11 +273,11 @@ const EVENTS = [
 // ============ STANDINGS ============
 const STANDINGS = [
   { group:"USA", items:[
-    { key:"nascar", status:"Chase · Rd 7 of 10 (after Phoenix)", entries:[
-        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,370 pts"},
-        {pos:2, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,365 pts"},
-        {pos:3, name:"Chase Briscoe", team:"Joe Gibbs Racing", pts:"2,346 pts"},
-      ], note:"Tyler Reddick won at Phoenix, but Larson held onto the points lead despite a right-front tire failure that put him into the wall and left him 34th. Hamlin (2,339), Blaney (2,330), Logano (2,326) and Reddick (2,314) round out a top 7 separated by just 56 points; Cindric (2,240), Gibbs (2,238) and Elliott (2,221) fill 8th–10th. Three Chase rounds remain: Talladega, Martinsville, and the Homestead finale.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
+    { key:"nascar", status:"Chase · Rd 8 of 10 (after Talladega)", entries:[
+        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,441 pts"},
+        {pos:2, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,368 pts"},
+        {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,367 pts"},
+      ], note:"Larson scored his first career superspeedway win, charging through an overtime scramble to beat William Byron by 0.041s in a chaotic YellaWood 500 that saw Joey Logano flip and Ryan Blaney exit early. The win blew Larson's points lead out to 73 over Hamlin. Briscoe (2,362), Logano (2,341), Blaney (2,334), Reddick (2,315), Ty Gibbs and Cindric (tied, 2,258) and Hocevar (2,243) round out the top 10. Two Chase rounds remain: Martinsville and the Homestead finale.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
     { key:"imsa", status:"Season complete · Petit Le Mans, Oct 3", entries:[
         {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)", pts:"GTP Champions"},
         {pos:2, name:"Heinrich / Estre", team:"Porsche Penske Motorsport"},
@@ -355,11 +306,11 @@ const STANDINGS = [
         {pos:4, name:"Lando Norris", team:"McLaren", pts:"186 pts"},
         {pos:5, name:"Charles Leclerc", team:"Ferrari", pts:"167 pts"},
       ], note:"Verstappen (145), Piastri (120), Hadjar (71), Lawson (59) and Gasly (41) round out the top 10.", link:"https://www.formula1.com/en/results/2026/drivers" },
-    { key:"motogp", status:"In progress · after Indonesia, 5 rounds left", entries:[
-        {pos:1, name:"Jorge Martín", team:"Aprilia Racing", pts:"355 pts"},
-        {pos:2, name:"Marc Márquez", team:"Ducati Lenovo", pts:"353 pts"},
-        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"309 pts"},
-      ], note:"Bezzecchi won at Mandalika — his first since Mugello and Aprilia's first-ever 1-2-3-4 lockout (Fernández, Martín, Ogura) — while Márquez's sprint win Saturday wasn't enough to hold the points lead after he fell to 6th in Sunday's race. Martín retakes the championship lead by 2. Ogura (259), Acosta (258), Di Giannantonio (245), Fernández (236), Álex Márquez (172), Bagnaia (166) and Aldeguer (125) round out the top 10. Minor lower-order discrepancies across secondary coverage — confirm at MotoGP's official standings.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
+    { key:"motogp", status:"In progress · after Phillip Island, 4 rounds left", entries:[
+        {pos:1, name:"Marc Márquez", team:"Ducati Lenovo", pts:"365 pts"},
+        {pos:2, name:"Jorge Martín", team:"Aprilia Racing", pts:"355 pts"},
+        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"315 pts"},
+      ], note:"Márquez retook the championship lead by winning a dramatic Phillip Island Sprint after Martín crashed out of it chasing him, fracturing his right radius (and a suspected ulna fracture) and ruling himself out of Sunday's Grand Prix. That race never happened anyway — heavy rain and poor visibility grounded the medical helicopter and organizers cancelled the Grand Prix outright, so only sprint points count from this round, Márquez's final MotoGP visit to Phillip Island before it's dropped from the calendar. Acosta (263), Ogura (259, pending a reported penalty), Di Giannantonio (252), Fernández (236), Álex Márquez (181), Bagnaia (166) and Aldeguer (125) round out the top 10. Lower-order totals varied across secondary coverage — confirm at MotoGP's official standings.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
     { key:"wec", status:"Hypercar · after Round 7 of 8 (Barcelona)", entries:[
         {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"114 pts"},
         {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"97 pts"},
@@ -382,11 +333,11 @@ const STANDINGS = [
         {pos:2, name:"Freddie Slater", team:"TRIDENT", pts:"145 pts"},
         {pos:3, name:"Tuukka Taponen", team:"MP Motorsport", pts:"109 pts"},
       ], link:"https://www.fiaformula3.com/Standings" },
-    { key:"f1academy", status:"In progress · after Zandvoort, 2 rounds left", entries:[
-        {pos:1, name:"Alisha Palmowski", team:"—", pts:"136 pts"},
-        {pos:2, name:"Emma Felbermayr", team:"—", pts:"88 pts"},
-        {pos:3, name:"Nina Gademan", team:"—", pts:"71 pts"},
-      ], note:"Alba Hurup Larsen and Zandvoort winner Payton Westcott are fighting over 4th — exact totals for that spot weren't confirmed across coverage; check f1academy.com.", link:"https://www.f1academy.com/Racing-Series/Standings" },
+    { key:"f1academy", status:"Champion decided (Palmowski) · 1 round left (Las Vegas)", entries:[
+        {pos:1, name:"Alisha Palmowski", team:"—", pts:"≈172 pts — Champion"},
+        {pos:2, name:"Nina Gademan", team:"—", pts:"≈119 pts"},
+        {pos:3, name:"Emma Felbermayr", team:"—", pts:"≈113 pts"},
+      ], note:"Palmowski clinched the 2026 title at Austin's Reverse Grid Race, finishing 2nd behind Alba Larsen's maiden win — enough to seal it with the three-race Las Vegas finale still to run. Gademan then won Austin's Feature Race to move up to 2nd ahead of Felbermayr. Larsen and Westcott are tied for 4th on roughly 76 points each. Point totals are approximate from secondary coverage — confirm at f1academy.com.", link:"https://www.f1academy.com/Racing-Series/Standings" },
     { key:"italianf4", status:"In progress", entries:[
         {pos:1, name:"Luka Sammalisto", team:"US Racing", pts:"leads by 47"},
         {pos:2, name:"David Cosma-Cristofor", team:"—"},
@@ -473,29 +424,29 @@ const MATH_SERIES = [
       {pos:9,name:"Liam Lawson",team:"RB F1 Team",pts:"59 pts",raw:59},
       {pos:10,name:"Pierre Gasly",team:"Alpine",pts:"41 pts",raw:41},
     ]).map(e=>({...e, raw: e.raw ?? parseInt(e.pts)})) },
-  { key:"motogp", remaining:5, raceLabels:["AUS","MAL","QAT","POR","VAL"], entries:[
-      {pos:1,name:"Jorge Martín",team:"Aprilia Racing",raw:355},
-      {pos:2,name:"Marc Márquez",team:"Ducati Lenovo",raw:353},
-      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:309},
-      {pos:4,name:"Ai Ogura",team:"Trackhouse Aprilia",raw:259},
-      {pos:5,name:"Pedro Acosta",team:"Red Bull KTM",raw:258},
-      {pos:6,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:245},
+  { key:"motogp", remaining:4, raceLabels:["MAL","QAT","POR","VAL"], entries:[
+      {pos:1,name:"Marc Márquez",team:"Ducati Lenovo",raw:365},
+      {pos:2,name:"Jorge Martín",team:"Aprilia Racing",raw:355},
+      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:315},
+      {pos:4,name:"Pedro Acosta",team:"Red Bull KTM",raw:263},
+      {pos:5,name:"Ai Ogura",team:"Trackhouse Aprilia",raw:259},
+      {pos:6,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:252},
       {pos:7,name:"Raul Fernandez",team:"Trackhouse Aprilia",raw:236},
-      {pos:8,name:"Alex Márquez",team:"Gresini Ducati",raw:172},
+      {pos:8,name:"Alex Márquez",team:"Gresini Ducati",raw:181},
       {pos:9,name:"Francesco Bagnaia",team:"Ducati",raw:166},
       {pos:10,name:"Fermin Aldeguer",team:"Gresini Ducati",raw:125},
     ]},
-  { key:"nascar", remaining:3, raceLabels:["TAL","MAR","HOM"], entries:[
-      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2370},
-      {pos:2,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2365},
-      {pos:3,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2346},
-      {pos:4,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2339},
-      {pos:5,name:"Ryan Blaney",team:"Team Penske",raw:2330},
-      {pos:6,name:"Joey Logano",team:"Team Penske",raw:2326},
-      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2314},
-      {pos:8,name:"Austin Cindric",team:"Team Penske",raw:2240},
-      {pos:9,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2238},
-      {pos:10,name:"Chase Elliott",team:"Hendrick Motorsports",raw:2221},
+  { key:"nascar", remaining:2, raceLabels:["MAR","HOM"], entries:[
+      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2441},
+      {pos:2,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2368},
+      {pos:3,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2367},
+      {pos:4,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2362},
+      {pos:5,name:"Joey Logano",team:"Team Penske",raw:2341},
+      {pos:6,name:"Ryan Blaney",team:"Team Penske",raw:2334},
+      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2315},
+      {pos:8,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2258},
+      {pos:9,name:"Austin Cindric",team:"Team Penske",raw:2258},
+      {pos:10,name:"Carson Hocevar",team:"Spire Motorsports",raw:2243},
     ]},
   { key:"superformula", remaining:1, raceLabels:["SUZ"], entries:[
       {pos:1,name:"Kakunoshin Ohta",team:"DOCOMO TEAM DANDELION RACING",raw:105},
@@ -514,7 +465,7 @@ const PROSPECTS = [
   {name:"Ugo Ugochukwu", cat:"f3", pos:1, note:"2026 F3 champion"},
   {name:"Freddie Slater", cat:"f3", pos:2, note:"F3 runner-up, 14 back"},
   {name:"Nikita Johnson", cat:"indynxt", pos:1, note:"2026 Indy NXT champion"},
-  {name:"Alisha Palmowski", cat:"f1academy", pos:1, note:"Leads F1 Academy by 48 after Zandvoort"},
+  {name:"Alisha Palmowski", cat:"f1academy", pos:1, note:"2026 F1 Academy champion, clinched in Austin"},
   {name:"Emanuele Olivieri", cat:"freca", pos:1, note:"2026 FRECA champion"},
   {name:"Sebastian Wheldon", cat:"freca", pos:2, note:"FRECA runner-up, −9"},
   {name:"Luka Sammalisto", cat:"italianf4", pos:1, note:"Leads Italian F4 by 47"},
