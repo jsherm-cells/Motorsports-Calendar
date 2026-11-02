@@ -23,16 +23,6 @@ const FILTER_ORDER = ["f1","f2","f1academy","wec","elms","imsa","motogp","nascar
 
 const EVENTS = [
   // ---------------- FORMULA 1 ----------------
-  { series:"f1", name:"Mexico City Grand Prix", location:"Autódromo Hermanos Rodríguez, Mexico City", dateRange:"Oct 30–Nov 1",
-    sessions:[
-      {type:"Practice 1", start:"2026-10-30T18:30:00Z", dur:60},
-      {type:"Practice 2", start:"2026-10-30T22:00:00Z", dur:60},
-      {type:"Practice 3", start:"2026-10-31T17:30:00Z", dur:60},
-      {type:"Qualifying", start:"2026-10-31T21:00:00Z", dur:60},
-      {type:"Race",       start:"2026-11-01T20:00:00Z", dur:120},
-    ],
-    watch:[{name:"Apple TV", url:"https://tv.apple.com/", note:"All sessions live."}]
-  },
   { series:"f1", name:"São Paulo Grand Prix", location:"Autódromo José Carlos Pace, Interlagos", dateRange:"Nov 6–8",
     sessions:[
       {type:"Practice 1", start:"2026-11-06T15:30:00Z", dur:60},
@@ -121,21 +111,6 @@ const EVENTS = [
   },
 
   // ---------------- MOTOGP ----------------
-  { series:"motogp", name:"Malaysian Grand Prix", location:"Sepang International Circuit", dateRange:"Oct 30–Nov 1",
-    sessions:[
-      {type:"Free Practice 1", start:"2026-10-30T02:45:00Z", dur:45, approx:true},
-      {type:"Practice",        start:"2026-10-30T07:00:00Z", dur:45, approx:true},
-      {type:"Free Practice 2", start:"2026-10-31T02:10:00Z", dur:30, approx:true},
-      {type:"Qualifying",      start:"2026-10-31T02:50:00Z", dur:35, approx:true},
-      {type:"Sprint",          start:"2026-10-31T07:00:00Z", dur:30, approx:true},
-      {type:"Race",            start:"2026-11-01T06:00:00Z", dur:45, approx:true},
-    ],
-    watch:[
-      {name:"Fox One", url:"https://www.foxsports.com/foxone"},
-      {name:"FS1 / FS2", url:"https://www.foxsports.com/live"},
-      {name:"The MotoGP Channel", url:"https://www.motogp.com/en/videos/motogp-channel", note:"Free, ad-supported."},
-    ]
-  },
   { series:"motogp", name:"Qatar Grand Prix", location:"Lusail International Circuit", dateRange:"Nov 6–8",
     sessions:[
       {type:"Free Practice 1", start:"2026-11-06T07:45:00Z", dur:45, approx:true},
@@ -183,13 +158,6 @@ const EVENTS = [
   },
 
   // ---------------- NASCAR CUP SERIES (single 10-race Chase) ----------------
-  { series:"nascar", name:"Xfinity 500", location:"Martinsville Speedway, VA", dateRange:"Nov 1 · Chase Rd 9 of 10",
-    sessions:[{type:"Race", start:"2026-11-01T19:00:00Z", dur:210}],
-    watch:[
-      {name:"NBC", url:"https://www.nbc.com/nbc-sports"},
-      {name:"Peacock", url:"https://www.peacocktv.com/"},
-    ]
-  },
   { series:"nascar", name:"Championship Race", location:"Homestead-Miami Speedway, FL", dateRange:"Nov 8 · Season finale", champ:true,
     sessions:[{type:"Race", start:"2026-11-08T20:00:00Z", dur:180}],
     watch:[
@@ -273,11 +241,11 @@ const EVENTS = [
 // ============ STANDINGS ============
 const STANDINGS = [
   { group:"USA", items:[
-    { key:"nascar", status:"Chase · Rd 8 of 10 (after Talladega)", entries:[
-        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,441 pts"},
-        {pos:2, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,368 pts"},
-        {pos:3, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,367 pts"},
-      ], note:"Larson scored his first career superspeedway win, charging through an overtime scramble to beat William Byron by 0.041s in a chaotic YellaWood 500 that saw Joey Logano flip and Ryan Blaney exit early. The win blew Larson's points lead out to 73 over Hamlin. Briscoe (2,362), Logano (2,341), Blaney (2,334), Reddick (2,315), Ty Gibbs and Cindric (tied, 2,258) and Hocevar (2,243) round out the top 10. Two Chase rounds remain: Martinsville and the Homestead finale.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
+    { key:"nascar", status:"Chase · Rd 9 of 10 (after Martinsville)", entries:[
+        {pos:1, name:"Kyle Larson", team:"Hendrick Motorsports", pts:"2,469 pts"},
+        {pos:2, name:"Christopher Bell", team:"Joe Gibbs Racing", pts:"2,402 pts"},
+        {pos:3, name:"Denny Hamlin", team:"Joe Gibbs Racing", pts:"2,399 pts"},
+      ], note:"William Byron dominated the Xfinity 500 at Martinsville for his first win of 2026, leading 362 of 500 laps to beat teammate Chase Elliott by just over two seconds — but Byron (9th, 166 back) is out of title contention, so the result didn't shake up the championship picture. Larson leads Bell by 67 and Hamlin by 70 with only the Homestead finale left; those three are the only drivers still mathematically alive. Briscoe (2,385), Logano (2,366), Reddick (2,344), Blaney (2,336), Ty Gibbs (2,309) and Byron (2,303) round out the top 10, all eliminated. Larson clinches back-to-back championships with a finish of 28th or better at Homestead.", link:"https://www.nascar.com/standings/nascar-cup-series/" },
     { key:"imsa", status:"Season complete · Petit Le Mans, Oct 3", entries:[
         {pos:1, name:"Aitken / Bamber", team:"Cadillac Racing (Whelen Engineering)", pts:"GTP Champions"},
         {pos:2, name:"Heinrich / Estre", team:"Porsche Penske Motorsport"},
@@ -306,11 +274,11 @@ const STANDINGS = [
         {pos:4, name:"Lando Norris", team:"McLaren", pts:"186 pts"},
         {pos:5, name:"Charles Leclerc", team:"Ferrari", pts:"167 pts"},
       ], note:"Verstappen (145), Piastri (120), Hadjar (71), Lawson (59) and Gasly (41) round out the top 10.", link:"https://www.formula1.com/en/results/2026/drivers" },
-    { key:"motogp", status:"In progress · after Phillip Island, 4 rounds left", entries:[
-        {pos:1, name:"Marc Márquez", team:"Ducati Lenovo", pts:"365 pts"},
+    { key:"motogp", status:"In progress · after Malaysia, 3 rounds left", entries:[
+        {pos:1, name:"Marc Márquez", team:"Ducati Lenovo", pts:"399 pts"},
         {pos:2, name:"Jorge Martín", team:"Aprilia Racing", pts:"355 pts"},
-        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"315 pts"},
-      ], note:"Márquez retook the championship lead by winning a dramatic Phillip Island Sprint after Martín crashed out of it chasing him, fracturing his right radius (and a suspected ulna fracture) and ruling himself out of Sunday's Grand Prix. That race never happened anyway — heavy rain and poor visibility grounded the medical helicopter and organizers cancelled the Grand Prix outright, so only sprint points count from this round, Márquez's final MotoGP visit to Phillip Island before it's dropped from the calendar. Acosta (263), Ogura (259, pending a reported penalty), Di Giannantonio (252), Fernández (236), Álex Márquez (181), Bagnaia (166) and Aldeguer (125) round out the top 10. Lower-order totals varied across secondary coverage — confirm at MotoGP's official standings.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
+        {pos:3, name:"Marco Bezzecchi", team:"Aprilia Racing", pts:"332 pts"},
+      ], note:"Márquez won a dry Sepang Grand Prix outright — his 80th premier-class victory — while Martín, still recovering from the wrist fracture suffered chasing Márquez at Phillip Island, sat out the entire Malaysia round. That blew Márquez's lead out to 44 points, putting him on the brink of a 10th world title (8th premier-class) as soon as the Nov 6–8 Qatar round. Saturday's rain-hit Sprint went to Pedro Acosta after pole-sitter Álex Márquez crashed out while leading. Acosta (295), Ai Ogura (278), Fabio Di Giannantonio (265), Raúl Fernández (236), Álex Márquez (197), Francesco Bagnaia (173) and Enea Bastianini (134) round out the top 10.", link:"https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" },
     { key:"wec", status:"Hypercar · after Round 7 of 8 (Barcelona)", entries:[
         {pos:1, name:"Buemi / Hartley / Hirakawa", team:"Toyota Gazoo Racing (#8)", pts:"114 pts"},
         {pos:2, name:"Conway / Kobayashi / de Vries", team:"Toyota Gazoo Racing (#7)", pts:"97 pts"},
@@ -424,29 +392,29 @@ const MATH_SERIES = [
       {pos:9,name:"Liam Lawson",team:"RB F1 Team",pts:"59 pts",raw:59},
       {pos:10,name:"Pierre Gasly",team:"Alpine",pts:"41 pts",raw:41},
     ]).map(e=>({...e, raw: e.raw ?? parseInt(e.pts)})) },
-  { key:"motogp", remaining:4, raceLabels:["MAL","QAT","POR","VAL"], entries:[
-      {pos:1,name:"Marc Márquez",team:"Ducati Lenovo",raw:365},
+  { key:"motogp", remaining:3, raceLabels:["QAT","POR","VAL"], entries:[
+      {pos:1,name:"Marc Márquez",team:"Ducati Lenovo",raw:399},
       {pos:2,name:"Jorge Martín",team:"Aprilia Racing",raw:355},
-      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:315},
-      {pos:4,name:"Pedro Acosta",team:"Red Bull KTM",raw:263},
-      {pos:5,name:"Ai Ogura",team:"Trackhouse Aprilia",raw:259},
-      {pos:6,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:252},
+      {pos:3,name:"Marco Bezzecchi",team:"Aprilia Racing",raw:332},
+      {pos:4,name:"Pedro Acosta",team:"Red Bull KTM",raw:295},
+      {pos:5,name:"Ai Ogura",team:"Trackhouse Aprilia",raw:278},
+      {pos:6,name:"Fabio di Giannantonio",team:"VR46 Ducati",raw:265},
       {pos:7,name:"Raul Fernandez",team:"Trackhouse Aprilia",raw:236},
-      {pos:8,name:"Alex Márquez",team:"Gresini Ducati",raw:181},
-      {pos:9,name:"Francesco Bagnaia",team:"Ducati",raw:166},
-      {pos:10,name:"Fermin Aldeguer",team:"Gresini Ducati",raw:125},
+      {pos:8,name:"Alex Márquez",team:"Gresini Ducati",raw:197},
+      {pos:9,name:"Francesco Bagnaia",team:"Ducati",raw:173},
+      {pos:10,name:"Enea Bastianini",team:"VR46 Ducati",raw:134},
     ]},
-  { key:"nascar", remaining:2, raceLabels:["MAR","HOM"], entries:[
-      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2441},
-      {pos:2,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2368},
-      {pos:3,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2367},
-      {pos:4,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2362},
-      {pos:5,name:"Joey Logano",team:"Team Penske",raw:2341},
-      {pos:6,name:"Ryan Blaney",team:"Team Penske",raw:2334},
-      {pos:7,name:"Tyler Reddick",team:"23XI Racing",raw:2315},
-      {pos:8,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2258},
-      {pos:9,name:"Austin Cindric",team:"Team Penske",raw:2258},
-      {pos:10,name:"Carson Hocevar",team:"Spire Motorsports",raw:2243},
+  { key:"nascar", remaining:1, raceLabels:["HOM"], entries:[
+      {pos:1,name:"Kyle Larson",team:"Hendrick Motorsports",raw:2469},
+      {pos:2,name:"Christopher Bell",team:"Joe Gibbs Racing",raw:2402},
+      {pos:3,name:"Denny Hamlin",team:"Joe Gibbs Racing",raw:2399},
+      {pos:4,name:"Chase Briscoe",team:"Joe Gibbs Racing",raw:2385},
+      {pos:5,name:"Joey Logano",team:"Team Penske",raw:2366},
+      {pos:6,name:"Tyler Reddick",team:"23XI Racing",raw:2344},
+      {pos:7,name:"Ryan Blaney",team:"Team Penske",raw:2336},
+      {pos:8,name:"Ty Gibbs",team:"Joe Gibbs Racing",raw:2309},
+      {pos:9,name:"William Byron",team:"Hendrick Motorsports",raw:2303},
+      {pos:10,name:"Chase Elliott",team:"Hendrick Motorsports",raw:2268},
     ]},
   { key:"superformula", remaining:1, raceLabels:["SUZ"], entries:[
       {pos:1,name:"Kakunoshin Ohta",team:"DOCOMO TEAM DANDELION RACING",raw:105},
